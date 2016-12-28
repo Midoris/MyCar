@@ -82,8 +82,6 @@ class ManufacturersListDataProviderTests: XCTestCase {
         tableView.delegate?.tableView!(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         waitForExpectations(timeout: 3, handler: nil)
     }
-
-
     
 }
 

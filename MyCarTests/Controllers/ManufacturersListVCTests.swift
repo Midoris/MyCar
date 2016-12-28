@@ -29,5 +29,24 @@ class ManufacturersListVCTests: XCTestCase {
         XCTAssertNotNil(sut.manufacturersTableView)
     }
 
+    func testViewDidLoad_ShouldSetTableViewDataSource() {
+        XCTAssertNotNil(sut.manufacturersTableView.dataSource)
+        XCTAssertTrue(sut.manufacturersTableView.dataSource is ManufacturersListDataProvider)
+    }
+
+    func testViewDidLoad_ShouldSetTableViewDelegate() {
+        XCTAssertNotNil(sut.manufacturersTableView.delegate)
+        XCTAssertTrue(sut.manufacturersTableView.delegate is ManufacturersListDataProvider)
+    }
+
+    func testViewDidLoad_ShouldSetDelegateAndDataSourceToSameObject() {
+        XCTAssertEqual(sut.manufacturersTableView.delegate as? ManufacturersListDataProvider, sut.manufacturersTableView.dataSource as? ManufacturersListDataProvider)
+    }
+
+    func testViewDidLoad_SetsItemManagerToDataProvider() {
+        XCTAssertTrue(sut.manufacturerManager === sut.manufacturersListDataProvider.manufacturerManager)
+    }
+
+
 
 }
