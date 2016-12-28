@@ -19,6 +19,8 @@
 		06768AEE1E137845001114DC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AED1E137845001114DC /* Model.swift */; };
 		06768AF21E1378B4001114DC /* ManufacturerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AF11E1378B4001114DC /* ManufacturerManagerTests.swift */; };
 		06768AF41E1378DD001114DC /* ManufacturerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AF31E1378DD001114DC /* ManufacturerManager.swift */; };
+		06768AFA1E138012001114DC /* ModelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AF91E138011001114DC /* ModelManagerTests.swift */; };
+		06768AFC1E13816B001114DC /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AFB1E13816A001114DC /* ModelManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		06768AED1E137845001114DC /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "A Car/Model.swift"; sourceTree = "<group>"; };
 		06768AF11E1378B4001114DC /* ManufacturerManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerManagerTests.swift; path = "Car Objects Managers/ManufacturerManagerTests.swift"; sourceTree = "<group>"; };
 		06768AF31E1378DD001114DC /* ManufacturerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerManager.swift; path = "Car Objects Managers/ManufacturerManager.swift"; sourceTree = "<group>"; };
+		06768AF91E138011001114DC /* ModelManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManagerTests.swift; path = "Car Objects Managers/ModelManagerTests.swift"; sourceTree = "<group>"; };
+		06768AFB1E13816A001114DC /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelManager.swift; path = "Car Objects Managers/ModelManager.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				06768AF11E1378B4001114DC /* ManufacturerManagerTests.swift */,
+				06768AF91E138011001114DC /* ModelManagerTests.swift */,
 			);
 			name = "Car Objects Managers";
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				06768AF31E1378DD001114DC /* ManufacturerManager.swift */,
+				06768AFB1E13816A001114DC /* ModelManager.swift */,
 			);
 			name = "Car Objects Managers";
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */,
 				06768AEE1E137845001114DC /* Model.swift in Sources */,
 				06768AF41E1378DD001114DC /* ManufacturerManager.swift in Sources */,
+				06768AFC1E13816B001114DC /* ModelManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +274,7 @@
 				06768AEC1E137825001114DC /* ModelTests.swift in Sources */,
 				06768AE81E137794001114DC /* ManufacturerTests.swift in Sources */,
 				06768ADD1E137740001114DC /* MyCarTests.swift in Sources */,
+				06768AFA1E138012001114DC /* ModelManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
