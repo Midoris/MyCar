@@ -12,9 +12,13 @@ import XCTest
 
 class ManufacturerManagerTests: XCTestCase {
 
+    var sut: ManufacturerManager!
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        sut = ManufacturerManager()
     }
 
     override func tearDown() {
@@ -22,9 +26,29 @@ class ManufacturerManagerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testManufacturerCount_Initially_ShouldBeZero() {
-        let manufacturerManager = ManufacturerManager()
-        XCTAssertEqual(manufacturerManager.manufacturersCount, 0)
+    func testManufacturersCount_Initially_ShouldBeZero() {
+        XCTAssertEqual(sut.manufacturersCount, 0)
+    }
+
+    func testManufacturersCount_AfterAddingOneItem_IsOne() {
+        sut.add(manufacturer: Manufacturer(id: "101", name: "BMW"))
+        XCTAssertEqual(sut.manufacturersCount, 1)
+    }
+
+    func testManufacturerAtIndex_ShouldReturnPreviouslyAddedItem() {
+        let manufacturer = Manufacturer(id: "101", name: "BMW")
+        sut.add(manufacturer: manufacturer)
+        let returnedManufacturer = sut.manufacturer(at: 0)
+        XCTAssertEqual(manufacturer.id, returnedManufacturer.id)
+        XCTAssertEqual(manufacturer.name, returnedManufacturer.name)
+    }
+
+    func testRemoveAllManufacturers_ShouldResultInCountBeZero() {
+        let manufacturer = Manufacturer(id: "101", name: "BMW")
+        sut.add(manufacturer: manufacturer)
+        XCTAssertEqual(sut.manufacturersCount, 1)
+        sut.removeAllManufacturers()
+        XCTAssertEqual(sut.manufacturersCount, 0)
     }
     
     

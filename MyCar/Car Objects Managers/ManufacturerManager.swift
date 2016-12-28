@@ -9,5 +9,20 @@
 import Foundation
 
 class ManufacturerManager {
-    
+
+    var manufacturersCount: Int { return manufacturers.count }
+    private var manufacturers = [Manufacturer]()
+
+    func add(manufacturer: Manufacturer) {
+        manufacturers.append(manufacturer)
+    }
+
+    func manufacturer(at index: Int) -> Manufacturer {
+        return manufacturers[index]
+    }
+
+    func removeAllManufacturers() {
+        manufacturers.removeAll()
+    }
+
 }
