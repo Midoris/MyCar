@@ -13,6 +13,8 @@
 		06768ACF1E137740001114DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06768ACE1E137740001114DC /* Assets.xcassets */; };
 		06768AD21E137740001114DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06768AD01E137740001114DC /* LaunchScreen.storyboard */; };
 		06768ADD1E137740001114DC /* MyCarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768ADC1E137740001114DC /* MyCarTests.swift */; };
+		06768AE81E137794001114DC /* ManufacturerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AE71E137794001114DC /* ManufacturerTests.swift */; };
+		06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AE91E1377D2001114DC /* Manufacturer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		06768AD81E137740001114DC /* MyCarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyCarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06768ADC1E137740001114DC /* MyCarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCarTests.swift; sourceTree = "<group>"; };
 		06768ADE1E137740001114DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06768AE71E137794001114DC /* ManufacturerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerTests.swift; path = "A Car/ManufacturerTests.swift"; sourceTree = "<group>"; };
+		06768AE91E1377D2001114DC /* Manufacturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manufacturer.swift; path = "A Car/Manufacturer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				06768AC71E137740001114DC /* AppDelegate.swift */,
 				06768AC91E137740001114DC /* ViewController.swift */,
+				06768AE91E1377D2001114DC /* Manufacturer.swift */,
 				06768ACB1E137740001114DC /* Main.storyboard */,
 				06768ACE1E137740001114DC /* Assets.xcassets */,
 				06768AD01E137740001114DC /* LaunchScreen.storyboard */,
@@ -91,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				06768ADC1E137740001114DC /* MyCarTests.swift */,
+				06768AE71E137794001114DC /* ManufacturerTests.swift */,
 				06768ADE1E137740001114DC /* Info.plist */,
 			);
 			path = MyCarTests;
@@ -203,6 +209,7 @@
 			files = (
 				06768ACA1E137740001114DC /* ViewController.swift in Sources */,
 				06768AC81E137740001114DC /* AppDelegate.swift in Sources */,
+				06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06768AE81E137794001114DC /* ManufacturerTests.swift in Sources */,
 				06768ADD1E137740001114DC /* MyCarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
