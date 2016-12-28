@@ -18,7 +18,15 @@ class ManufacturersListDataProvider: NSObject, UITableViewDataSource, UITableVie
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ManufacturerCell", for: indexPath) as! ManufacturerCell
+        guard let manufacturerManager = manufacturerManager else { fatalError() }
+        let manufacturer = manufacturerManager.manufacturer(at: indexPath.row)
+        cell.configCell(with: manufacturer)
+        return cell
     }
-    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let notificationName = Notification.Name("ManufacturerSelectedNotification")
+        NotificationCenter.default.post(name: notificationName, object: self, userInfo: ["index" : indexPath.row])
+    }
 }

@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 class ModelManager {
 
     var modelsCount: Int { return models.count }

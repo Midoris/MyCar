@@ -24,6 +24,8 @@
 		06768B001E139146001114DC /* ManufacturersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AFF1E139146001114DC /* ManufacturersListViewController.swift */; };
 		06768B041E13935B001114DC /* ManufacturersListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B031E13935B001114DC /* ManufacturersListDataProviderTests.swift */; };
 		06768B071E13944B001114DC /* ManufacturersListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B061E13944B001114DC /* ManufacturersListDataProvider.swift */; };
+		06768B0A1E139CD6001114DC /* ManufacturerCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B091E139CD6001114DC /* ManufacturerCellTests.swift */; };
+		06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B0C1E139E08001114DC /* ManufacturerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		06768AFF1E139146001114DC /* ManufacturersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersListViewController.swift; path = Controllers/ManufacturersListViewController.swift; sourceTree = "<group>"; };
 		06768B031E13935B001114DC /* ManufacturersListDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersListDataProviderTests.swift; path = "Lists Data Providers/ManufacturersListDataProviderTests.swift"; sourceTree = "<group>"; };
 		06768B061E13944B001114DC /* ManufacturersListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersListDataProvider.swift; path = "Lists Data Providers/ManufacturersListDataProvider.swift"; sourceTree = "<group>"; };
+		06768B091E139CD6001114DC /* ManufacturerCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerCellTests.swift; path = Cells/ManufacturerCellTests.swift; sourceTree = "<group>"; };
+		06768B0C1E139E08001114DC /* ManufacturerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerCell.swift; path = Cells/ManufacturerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				06768AC71E137740001114DC /* AppDelegate.swift */,
-				06768B061E13944B001114DC /* ManufacturersListDataProvider.swift */,
+				06768B0E1E139E13001114DC /* Cells */,
+				06768B081E139909001114DC /* Lists Data Providers */,
 				06768B011E139264001114DC /* Controllers */,
 				06768AF81E13790F001114DC /* Car Objects Managers */,
 				06768AEF1E137857001114DC /* A Car */,
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				06768ADC1E137740001114DC /* MyCarTests.swift */,
+				06768B0B1E139DAE001114DC /* Cells */,
 				06768B051E13935F001114DC /* Lists Data Providers */,
 				06768B021E139270001114DC /* Controllers */,
 				06768AF71E137909001114DC /* Car Objects Managers */,
@@ -183,6 +189,30 @@
 				06768B031E13935B001114DC /* ManufacturersListDataProviderTests.swift */,
 			);
 			name = "Lists Data Providers";
+			sourceTree = "<group>";
+		};
+		06768B081E139909001114DC /* Lists Data Providers */ = {
+			isa = PBXGroup;
+			children = (
+				06768B061E13944B001114DC /* ManufacturersListDataProvider.swift */,
+			);
+			name = "Lists Data Providers";
+			sourceTree = "<group>";
+		};
+		06768B0B1E139DAE001114DC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				06768B091E139CD6001114DC /* ManufacturerCellTests.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		06768B0E1E139E13001114DC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				06768B0C1E139E08001114DC /* ManufacturerCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +326,7 @@
 				06768AF41E1378DD001114DC /* ManufacturerManager.swift in Sources */,
 				06768AFC1E13816B001114DC /* ModelManager.swift in Sources */,
 				06768B001E139146001114DC /* ManufacturersListViewController.swift in Sources */,
+				06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */,
 				06768B071E13944B001114DC /* ManufacturersListDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +341,7 @@
 				06768AE81E137794001114DC /* ManufacturerTests.swift in Sources */,
 				06768ADD1E137740001114DC /* MyCarTests.swift in Sources */,
 				06768B041E13935B001114DC /* ManufacturersListDataProviderTests.swift in Sources */,
+				06768B0A1E139CD6001114DC /* ManufacturerCellTests.swift in Sources */,
 				06768AFA1E138012001114DC /* ModelManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
