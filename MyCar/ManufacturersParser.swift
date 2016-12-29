@@ -9,8 +9,8 @@
 import Foundation
 
 class ManufacturersParser: Parser {
+
     func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [CarElement] {
-        print("ManufacturersParser got called with error: \(error), carElementsDict \(carElementsDict)")
         guard let carElementsDict = carElementsDict else { fatalError() }
         guard let manufacturersDict = carElementsDict["wkda"] as? [String: String] else { fatalError() }
         var manufacturers = [Manufacturer]()

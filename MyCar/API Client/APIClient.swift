@@ -10,10 +10,9 @@ import Foundation
 
 class APIClient {
 
-    lazy var session: ToDoURLSession = URLSession.shared
+    lazy var session: CarURLSession = URLSession.shared
 
-    func loginUser(with url: URL, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
-
+    func callAPI(with url: URL, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
         let task = session.dataTask(with: url) { (data, responss, error) in
             if error != nil {
                 completion(nil, WebServiceError.responseError)
@@ -34,6 +33,7 @@ class APIClient {
         }
         task.resume()
     }
+
 }
 
 enum WebServiceError: Error {
@@ -41,9 +41,9 @@ enum WebServiceError: Error {
     case responseError
 }
 
-protocol ToDoURLSession {
+protocol CarURLSession {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
-extension URLSession: ToDoURLSession {
+extension URLSession: CarURLSession {
 }

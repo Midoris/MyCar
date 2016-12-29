@@ -17,8 +17,12 @@ class ManufacturersListDataProviderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        sut = ListDataProvider()
-        sut.manager = Manager()
+        let paresrNotificator = ParsingCompletionNotificator(notificationId: "ManufacturersParsingCompleted")
+        let parser = ManufacturersParser()
+        let manager = Manager(parser: parser, notificator: paresrNotificator)
+        let cellSelectionNotificator = CellSelectionNotificator(notificationId: "ManufacturerCellSelected")
+        sut = ListDataProvider(manager: manager, notificator: cellSelectionNotificator)
+        sut.manager = manager
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
         _ = controller.view
@@ -73,7 +77,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
     func testSelectionCell_SendsNotification() {
         let manufacturer = Manufacturer(id: "070", name: "Audi")
         sut.manager?.add(carElement: manufacturer)
-        expectation(forNotification: "ManufacturerSelectedNotification", object: nil) { (notification) -> Bool in
+        expectation(forNotification: "ManufacturerCellSelected", object: nil) { (notification) -> Bool in
             guard let index = notification.userInfo?["index"] as? Int else {
                 return false
             }

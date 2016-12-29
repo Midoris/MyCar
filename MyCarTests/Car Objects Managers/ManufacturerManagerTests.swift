@@ -18,7 +18,9 @@ class ManufacturerManagerTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        sut = Manager()
+        let paresrNotificator = ParsingCompletionNotificator(notificationId: "")
+        let parser = ManufacturersParser()
+        sut = Manager(parser: parser, notificator: paresrNotificator)
     }
 
     override func tearDown() {

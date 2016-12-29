@@ -11,8 +11,8 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    private var manager: Manager?
-    private var notificator: CellSelectionNotificator?
+    var manager: Manager?
+    var notificator: CellSelectionNotificator?
 
     init(manager: Manager, notificator: CellSelectionNotificator) {
         self.manager = manager
@@ -34,4 +34,5 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         notificator?.notifyCellSelection(at: indexPath.row)
     }
+    
 }

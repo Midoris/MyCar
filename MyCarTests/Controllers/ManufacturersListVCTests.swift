@@ -44,7 +44,7 @@ class ManufacturersListVCTests: XCTestCase {
     }
 
     func testViewDidLoad_SetsItemManagerToDataProvider() {
-        XCTAssertTrue(sut.manufacturerManager === sut.manufacturersListDataProvider.manager)
+        XCTAssertTrue(sut.manufacturerManager === sut.manufacturersListDataProvider?.manager)
     }
 
 
