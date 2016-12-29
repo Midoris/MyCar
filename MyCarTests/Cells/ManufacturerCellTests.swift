@@ -28,7 +28,7 @@ class ManufacturerCellTests: XCTestCase {
 
     func testConfigWithManufacturer_SetsNameLabelText() {
         let cell = dequeuedManufacturerCell(for: IndexPath(row: 0, section: 0))
-        cell.configCell(with: Manufacturer(id: "101", name: "BMW"), for: 0) 
+        cell.configCell(with: Manufacturer(id: "101", name: "BMW"), for: 0)
         XCTAssertEqual(cell.iCarElementNameLabel.text, "BMW")
     }
 

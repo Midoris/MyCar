@@ -45,7 +45,7 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == loadingCellNamber {
                 oldLoadingNumber = loadingCellNamber
                 pageNumber += 1
-                manager.fetchCarElemets(for: pageNumber)
+                manager.fetchAdditionalCarElemets(for: pageNumber)
             }
         }
     }

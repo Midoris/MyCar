@@ -35,13 +35,25 @@ class Manager {
     }
 
     func fetchCarElemets() {
-        let url = URL(string: "http://api.wkda-test.com/v1/car-types/manufacturer?page=0&pageSize=15&wa_key=coding-puzzle-client-449cc9d")
-        apiClient.callAPI(with: url!, completion: self.parse)
+        var url: URL
+        do {
+            try url = URLGenerator.urlForFirstPage()
+            apiClient.callAPI(with: url, completion: self.parse)
+        } catch {
+            // do something with error
+            print("ERROR is \(error.localizedDescription)")
+        }
     }
 
-    func fetchCarElemets(for page: Int) {
-        let url = URL(string: "http://api.wkda-test.com/v1/car-types/manufacturer?page=\(page)&pageSize=15&wa_key=coding-puzzle-client-449cc9d")
-        apiClient.callAPI(with: url!, completion: self.parse)
+    func fetchAdditionalCarElemets(for page: Int) {
+        var url: URL
+        do {
+            try url = URLGenerator.urlFor(page: page)
+            apiClient.callAPI(with: url, completion: self.parse)
+        } catch {
+            // do something with error
+            print("ERROR is \(error.localizedDescription)")
+        }
     }
 
     func parse(carElementsDict: [String : AnyObject]?, error: Error?) {
