@@ -11,14 +11,14 @@ import XCTest
 
 class ManufacturersListDataProviderTests: XCTestCase {
     
-    var sut: ManufacturersListDataProvider!
+    var sut: ListDataProvider!
     var tableView: UITableView!
     var controller: ManufacturersListViewController!
 
     override func setUp() {
         super.setUp()
-        sut = ManufacturersListDataProvider()
-        sut.manufacturerManager = ManufacturerManager()
+        sut = ListDataProvider()
+        sut.manager = Manager()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
         _ = controller.view
@@ -28,8 +28,8 @@ class ManufacturersListDataProviderTests: XCTestCase {
     }
     
     override func tearDown() {
-        sut.manufacturerManager?.removeAllManufacturers()
-        sut.manufacturerManager = nil
+        sut.manager?.removeAllCarElemnts()
+        sut.manager = nil
         super.tearDown()
     }
 
@@ -38,15 +38,15 @@ class ManufacturersListDataProviderTests: XCTestCase {
     }
 
     func testNumberOfRows_ShouldBeManufacturers() {
-        sut.manufacturerManager?.add(manufacturer: Manufacturer(id: "101", name: "BMW"))
-        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manufacturerManager?.manufacturersCount)
-        sut.manufacturerManager?.add(manufacturer: Manufacturer(id: "070", name: "Audi"))
+        sut.manager?.add(carElement: Manufacturer(id: "101", name: "BMW"))
+        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manager?.elementsCount)
+        sut.manager?.add(carElement: Manufacturer(id: "070", name: "Audi"))
         tableView.reloadData()
-        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manufacturerManager?.manufacturersCount)
+        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manager?.elementsCount)
     }
 
     func testCellRorRow_ReturnsManufacturerCell() {
-        sut.manufacturerManager?.add(manufacturer: Manufacturer(id: "101", name: "BMW"))
+        sut.manager?.add(carElement: Manufacturer(id: "101", name: "BMW"))
         tableView.reloadData()
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertTrue(cell is ManufacturerCell)
@@ -54,7 +54,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
 
     func testCellForRow_DequesCell() {
         let mockTableView = MockTableView.mockTableView(with: sut)
-        sut.manufacturerManager?.add(manufacturer: Manufacturer(id: "101", name: "NMW"))
+        sut.manager?.add(carElement: Manufacturer(id: "101", name: "NMW"))
         mockTableView.reloadData()
         _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertTrue(mockTableView.cellGotDequed)
@@ -63,7 +63,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
     func testConfigCell_GetsCalledInCellForRow() {
         let mockTableView = MockTableView.mockTableView(with: sut)
         let manufacturer = Manufacturer(id: "070", name: "Audi")
-        sut.manufacturerManager?.add(manufacturer: manufacturer)
+        sut.manager?.add(carElement: manufacturer)
         mockTableView.reloadData()
         let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockManufacturerCell
         XCTAssertEqual(cell.manufacturer?.id, manufacturer.id)
@@ -72,7 +72,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
 
     func testSelectionCell_SendsNotification() {
         let manufacturer = Manufacturer(id: "070", name: "Audi")
-        sut.manufacturerManager?.add(manufacturer: manufacturer)
+        sut.manager?.add(carElement: manufacturer)
         expectation(forNotification: "ManufacturerSelectedNotification", object: nil) { (notification) -> Bool in
             guard let index = notification.userInfo?["index"] as? Int else {
                 return false
@@ -109,8 +109,8 @@ extension ManufacturersListDataProviderTests {
 
         var manufacturer: Manufacturer?
 
-        override func configCell(with manufacturer: Manufacturer) {
-            self.manufacturer = manufacturer
+        override func configCell(with carElement: CarElement) {
+            self.manufacturer = carElement as? Manufacturer
         }
     }
 }

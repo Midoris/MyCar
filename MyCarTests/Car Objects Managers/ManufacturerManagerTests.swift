@@ -12,13 +12,13 @@ import XCTest
 
 class ManufacturerManagerTests: XCTestCase {
 
-    var sut: ManufacturerManager!
+    var sut: Manager!
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        sut = ManufacturerManager()
+        sut = Manager()
     }
 
     override func tearDown() {
@@ -27,28 +27,28 @@ class ManufacturerManagerTests: XCTestCase {
     }
 
     func testManufacturersCount_Initially_ShouldBeZero() {
-        XCTAssertEqual(sut.manufacturersCount, 0)
+        XCTAssertEqual(sut.elementsCount, 0)
     }
 
     func testManufacturersCount_AfterAddingOneItem_IsOne() {
-        sut.add(manufacturer: Manufacturer(id: "101", name: "BMW"))
-        XCTAssertEqual(sut.manufacturersCount, 1)
+        sut.add(carElement: Manufacturer(id: "101", name: "BMW"))
+        XCTAssertEqual(sut.elementsCount, 1)
     }
 
     func testManufacturerAtIndex_ShouldReturnPreviouslyAddedItem() {
         let manufacturer = Manufacturer(id: "101", name: "BMW")
-        sut.add(manufacturer: manufacturer)
-        let returnedManufacturer = sut.manufacturer(at: 0)
+        sut.add(carElement: manufacturer)
+        let returnedManufacturer = sut.carElement(at: 0) as! Manufacturer
         XCTAssertEqual(manufacturer.id, returnedManufacturer.id)
         XCTAssertEqual(manufacturer.name, returnedManufacturer.name)
     }
 
     func testRemoveAllManufacturers_ShouldResultInCountBeZero() {
         let manufacturer = Manufacturer(id: "101", name: "BMW")
-        sut.add(manufacturer: manufacturer)
-        XCTAssertEqual(sut.manufacturersCount, 1)
-        sut.removeAllManufacturers()
-        XCTAssertEqual(sut.manufacturersCount, 0)
+        sut.add(carElement: manufacturer)
+        XCTAssertEqual(sut.elementsCount, 1)
+        sut.removeAllCarElemnts()
+        XCTAssertEqual(sut.elementsCount, 0)
     }
     
     

@@ -11,14 +11,15 @@ import UIKit
 class ManufacturersListViewController: UIViewController {
     
     @IBOutlet weak var manufacturersTableView: UITableView!
-    let manufacturersListDataProvider = ManufacturersListDataProvider()
-    let manufacturerManager = ManufacturerManager()
+
+    let manufacturerManager = Manager()
+    let manufacturersListDataProvider = ListDataProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         manufacturersTableView.dataSource = manufacturersListDataProvider
         manufacturersTableView.delegate = manufacturersListDataProvider
-        manufacturersListDataProvider.manufacturerManager = self.manufacturerManager
+        manufacturersListDataProvider.manager = self.manufacturerManager
     }
 
 

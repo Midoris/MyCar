@@ -11,13 +11,13 @@ import XCTest
 
 class ModelManagerTests: XCTestCase {
     
-    var sut: ModelManager!
+    var sut: Manager!
 
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
-        sut = ModelManager()
+        sut = Manager()
     }
 
     override func tearDown() {
@@ -26,28 +26,27 @@ class ModelManagerTests: XCTestCase {
     }
 
     func testModelsCount_Initially_ShouldBeZero() {
-        XCTAssertEqual(sut.modelsCount, 0)
+        XCTAssertEqual(sut.elementsCount, 0)
     }
 
     func testManufacturersCount_AfterAddingOneItem_IsOne() {
-        sut.add(model: Model(name: "Audi"))
-        XCTAssertEqual(sut.modelsCount, 1)
+        sut.add(carElement: Model(name: "Audi"))
+        XCTAssertEqual(sut.elementsCount, 1)
     }
 
     func testManufacturerAtIndex_ShouldReturnPreviouslyAddedItem() {
         let model = Model(name: "Audi")
-        sut.add(model: model)
-        let returnedModel = sut.model(at: 0)
+        sut.add(carElement: model)
+        let returnedModel = sut.carElement(at: 0)
         XCTAssertEqual(model.name, returnedModel.name)
-
     }
 
     func testRemoveAllManufacturers_ShouldResultInCountBeZero() {
         let model = Model(name: "Audi")
-        sut.add(model: model)
-        XCTAssertEqual(sut.modelsCount, 1)
-        sut.removeAllModels()
-        XCTAssertEqual(sut.modelsCount, 0)
+        sut.add(carElement: model)
+        XCTAssertEqual(sut.elementsCount, 1)
+        sut.removeAllCarElemnts()
+        XCTAssertEqual(sut.elementsCount, 0)
     }
 
 }

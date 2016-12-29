@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Model {
+struct Model: CarElement {
     let name: String
 }
