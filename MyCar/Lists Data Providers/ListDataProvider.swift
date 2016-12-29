@@ -11,7 +11,13 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    var manager: Manager?
+    private var manager: Manager?
+    private var notificator: CellSelectionNotificator?
+
+    init(manager: Manager, notificator: CellSelectionNotificator) {
+        self.manager = manager
+        self.notificator = notificator
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return manager?.elementsCount ?? 0
@@ -25,9 +31,7 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let notificationName = Notification.Name("ManufacturerSelectedNotification")
-        NotificationCenter.default.post(name: notificationName, object: self, userInfo: ["index" : indexPath.row])
+        notificator?.notifyCellSelection(at: indexPath.row)
     }
 }

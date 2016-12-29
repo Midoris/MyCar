@@ -30,8 +30,15 @@ class Manager {
         carElemnts.removeAll()
     }
 
-    func parse(carElementsDict: [[String : AnyObject]]?, error: Error?) {
+    func fetchCarElemets() {
+        let apiClient = APIClient()
+        let url = URL(string: "http://api.wkda-test.com/v1/car-types/manufacturer?page=0&pageSize=10&wa_key=coding-puzzle-client-449cc9d")
+        apiClient.loginUser(with: url!, completion: self.parse)
+    }
+
+    func parse(carElementsDict: [String : AnyObject]?, error: Error?) {
         let careElements = parser.parse(carElementsDict: carElementsDict, error: error)
+        self.carElemnts += careElements
     }
     
 }

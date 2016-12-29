@@ -11,16 +11,23 @@ import UIKit
 class ManufacturersListViewController: UIViewController {
     
     @IBOutlet weak var manufacturersTableView: UITableView!
-    var manufacturerManager: Manager?
-    let manufacturersListDataProvider = ListDataProvider()
+    var manufacturerManager: Manager!
+    var manufacturersListDataProvider: ListDataProvider?
+    let notificator = CellSelectionNotificator(notificationId: "ManufacturerCellSelected")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let manufacturersParser = ManufacturersParser()
+
+        
         manufacturerManager = Manager(parser: manufacturersParser)
+        manufacturersListDataProvider = ListDataProvider(manager: self.manufacturerManager, notificator: notificator)
+
+
         manufacturersTableView.dataSource = manufacturersListDataProvider
         manufacturersTableView.delegate = manufacturersListDataProvider
-        manufacturersListDataProvider.manager = self.manufacturerManager
+
+        manufacturerManager?.fetchCarElemets()
     }
 
 }

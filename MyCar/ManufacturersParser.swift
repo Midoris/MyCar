@@ -9,9 +9,15 @@
 import Foundation
 
 class ManufacturersParser: Parser {
-    func parse(carElementsDict: [[String : AnyObject]]?, error: Error?) -> CarElement {
-        // some code
-
-        return Manufacturer(id: "", name: "")
+    func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [CarElement] {
+        print("ManufacturersParser got called with error: \(error), carElementsDict \(carElementsDict)")
+        guard let carElementsDict = carElementsDict else { fatalError() }
+        guard let manufacturersDict = carElementsDict["wkda"] as? [String: String] else { fatalError() }
+        var manufacturers = [Manufacturer]()
+        for(id, name) in manufacturersDict {
+            let manufacturer = Manufacturer(id: id, name: name)
+            manufacturers.append(manufacturer)
+        }
+        return manufacturers
     }
 }

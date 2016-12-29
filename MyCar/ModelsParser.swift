@@ -9,9 +9,9 @@
 import Foundation
 
 class ModelsParser: Parser {
-    func parse(carElementsDict: [[String : AnyObject]]?, error: Error?) -> CarElement {
+    func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [CarElement] {
         // some code
 
-        return Model(name: "")
+        return [Model(name: "")]
     }
 }
