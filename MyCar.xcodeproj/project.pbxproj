@@ -27,6 +27,9 @@
 		06768B0A1E139CD6001114DC /* ManufacturerCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B091E139CD6001114DC /* ManufacturerCellTests.swift */; };
 		06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B0C1E139E08001114DC /* ManufacturerCell.swift */; };
 		06768B101E14B554001114DC /* CarElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B0F1E14B554001114DC /* CarElement.swift */; };
+		06768B121E14D256001114DC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B111E14D256001114DC /* Parser.swift */; };
+		06768B141E14D2D2001114DC /* ManufacturersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B131E14D2D2001114DC /* ManufacturersParser.swift */; };
+		06768B161E14D306001114DC /* ModelsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B151E14D306001114DC /* ModelsParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		06768B091E139CD6001114DC /* ManufacturerCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerCellTests.swift; path = Cells/ManufacturerCellTests.swift; sourceTree = "<group>"; };
 		06768B0C1E139E08001114DC /* ManufacturerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerCell.swift; path = Cells/ManufacturerCell.swift; sourceTree = "<group>"; };
 		06768B0F1E14B554001114DC /* CarElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarElement.swift; path = "A Car/CarElement.swift"; sourceTree = "<group>"; };
+		06768B111E14D256001114DC /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		06768B131E14D2D2001114DC /* ManufacturersParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersParser.swift; sourceTree = "<group>"; };
+		06768B151E14D306001114DC /* ModelsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				06768AF31E1378DD001114DC /* Manager.swift */,
+				06768B111E14D256001114DC /* Parser.swift */,
+				06768B131E14D2D2001114DC /* ManufacturersParser.swift */,
+				06768B151E14D306001114DC /* ModelsParser.swift */,
 				06768AFB1E13816A001114DC /* ModelManager.swift */,
 			);
 			name = "Car Objects Managers";
@@ -323,10 +332,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06768B141E14D2D2001114DC /* ManufacturersParser.swift in Sources */,
 				06768AC81E137740001114DC /* AppDelegate.swift in Sources */,
 				06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */,
+				06768B121E14D256001114DC /* Parser.swift in Sources */,
 				06768AEE1E137845001114DC /* Model.swift in Sources */,
 				06768AF41E1378DD001114DC /* Manager.swift in Sources */,
+				06768B161E14D306001114DC /* ModelsParser.swift in Sources */,
 				06768AFC1E13816B001114DC /* ModelManager.swift in Sources */,
 				06768B001E139146001114DC /* ManufacturersListViewController.swift in Sources */,
 				06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */,

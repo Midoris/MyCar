@@ -10,8 +10,13 @@ import Foundation
 
 class Manager {
 
+    private var parser: Parser
     var elementsCount: Int { return carElemnts.count }
     private var carElemnts = [CarElement]()
+
+    init(parser: Parser) {
+        self.parser = parser
+    }
 
     func add(carElement: CarElement) {
         carElemnts.append(carElement)
@@ -23,6 +28,10 @@ class Manager {
 
     func removeAllCarElemnts() {
         carElemnts.removeAll()
+    }
+
+    func parse(carElementsDict: [[String : AnyObject]]?, error: Error?) {
+        let careElements = parser.parse(carElementsDict: carElementsDict, error: error)
     }
     
 }
