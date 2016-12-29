@@ -53,7 +53,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
         sut.manager?.add(carElement: Manufacturer(id: "101", name: "BMW"))
         tableView.reloadData()
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
-        XCTAssertTrue(cell is ManufacturerCell)
+        XCTAssertTrue(cell is ICarElementCell)
     }
 
     func testCellForRow_DequesCell() {
@@ -69,7 +69,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
         let manufacturer = Manufacturer(id: "070", name: "Audi")
         sut.manager?.add(carElement: manufacturer)
         mockTableView.reloadData()
-        let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockManufacturerCell
+        let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockICarElementCell
         XCTAssertEqual(cell.manufacturer?.id, manufacturer.id)
         XCTAssertEqual(cell.manufacturer?.name, manufacturer.name)
     }
@@ -104,16 +104,16 @@ extension ManufacturersListDataProviderTests {
         class func mockTableView(with dataSource: UITableViewDataSource) -> MockTableView {
             let mockTableView = MockTableView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), style: .plain)
             mockTableView.dataSource = dataSource
-            mockTableView.register(MockManufacturerCell.self, forCellReuseIdentifier: "ManufacturerCell")
+            mockTableView.register(MockICarElementCell.self, forCellReuseIdentifier: "ICarElementCell")
             return mockTableView
         }
     }
 
-    class MockManufacturerCell: ManufacturerCell {
+    class MockICarElementCell: ICarElementCell {
 
         var manufacturer: Manufacturer?
 
-        override func configCell(with carElement: ICarElement) {
+        override func configCell(with carElement: ICarElement, for index: Int) {
             self.manufacturer = carElement as? Manufacturer
         }
     }

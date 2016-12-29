@@ -11,8 +11,13 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    var manager: Manager?
-    var notificator: ICellSelectionNotificator?
+    var manager: Manager!
+    var notificator: ICellSelectionNotificator!
+    private var loadingCellNamber: Int {
+        return manager.elementsCount - 1
+    }
+    private var pageNumber = 0
+    private var oldLoadingNumber = 0
 
     init(manager: Manager, notificator: ICellSelectionNotificator) {
         self.manager = manager
@@ -24,15 +29,25 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ManufacturerCell", for: indexPath) as! ManufacturerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ICarElementCell", for: indexPath) as! ICarElementCell
         guard let manager = manager else { fatalError() }
         let carElement = manager.carElement(at: indexPath.row)
-        cell.configCell(with: carElement)
+        cell.configCell(with: carElement, for: indexPath.row)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         notificator?.notifyCellSelection(at: indexPath.row)
     }
-    
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if loadingCellNamber > oldLoadingNumber {
+            if indexPath.row == loadingCellNamber {
+                oldLoadingNumber = loadingCellNamber
+                pageNumber += 1
+                manager.fetchCarElemets(for: pageNumber)
+            }
+        }
+    }
+
 }

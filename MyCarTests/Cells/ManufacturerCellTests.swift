@@ -23,24 +23,24 @@ class ManufacturerCellTests: XCTestCase {
 
     func testSUT_HasNameLabel() {
         let cell = dequeuedManufacturerCell(for: IndexPath(row: 0, section: 0))
-        XCTAssertNotNil(cell.manufacturerNameLabel)
+        XCTAssertNotNil(cell.iCarElementNameLabel)
     }
 
     func testConfigWithManufacturer_SetsNameLabelText() {
         let cell = dequeuedManufacturerCell(for: IndexPath(row: 0, section: 0))
-        cell.configCell(with: Manufacturer(id: "101", name: "BMW"))
-        XCTAssertEqual(cell.manufacturerNameLabel.text, "BMW")
+        cell.configCell(with: Manufacturer(id: "101", name: "BMW"), for: 0) 
+        XCTAssertEqual(cell.iCarElementNameLabel.text, "BMW")
     }
 
 
-    func dequeuedManufacturerCell(for indexPath: IndexPath) -> ManufacturerCell {
+    func dequeuedManufacturerCell(for indexPath: IndexPath) -> ICarElementCell {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
         _ = controller.view
         let tableView = controller.manufacturersTableView
         let dataProvider = FakeDataSource()
         tableView?.dataSource = dataProvider
-        let cell = tableView?.dequeueReusableCell(withIdentifier: "ManufacturerCell", for: indexPath) as! ManufacturerCell
+        let cell = tableView?.dequeueReusableCell(withIdentifier: "ICarElementCell", for: indexPath) as! ICarElementCell
         return cell
     }
 

@@ -53,8 +53,6 @@ class ManufacturersListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.updateUI), name: parsingnotificationName, object: nil)
         let selctionNotificationName = Notification.Name("ManufacturerCellSelected")
         NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.manufacturerSelected(sender:)), name: selctionNotificationName, object: nil)
-
-
     }
 
 }

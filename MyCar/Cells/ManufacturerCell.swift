@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ManufacturerCell: UITableViewCell {
+class ICarElementCell: UITableViewCell {
 
-    @IBOutlet weak var manufacturerNameLabel: UILabel!
+    @IBOutlet weak var iCarElementNameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +23,14 @@ class ManufacturerCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configCell(with carElement: ICarElement) {
-        manufacturerNameLabel.text = carElement.name
+    func configCell(with carElement: ICarElement, for index: Int) {
+        iCarElementNameLabel.text = carElement.name
+        switch index % 2 == 0 {
+        case true:
+            self.backgroundColor = UIColor.lightGray
+        default:
+            self.backgroundColor = UIColor.white
+        }
     }
 
 
