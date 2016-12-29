@@ -20,8 +20,8 @@ class ManufacturersListViewController: UIViewController {
         super.viewDidLoad()
         let manufacturersParser = ManufacturersParser()
 
-        
-        manufacturerManager = Manager(parser: manufacturersParser, notificator: parsingCompletionNotificator)
+        let manufacturerURLGenerator = ManufacturerURLGenerator()
+        manufacturerManager = Manager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator)
         manufacturersListDataProvider = ListDataProvider(manager: self.manufacturerManager, notificator: cellSelectionNotificator)
 
 
@@ -43,15 +43,14 @@ class ManufacturersListViewController: UIViewController {
         guard let index = sender.userInfo?["index"] as? Int else {
             fatalError()
         }
-        let selectedManufacturer = manufacturerManager.carElement(at: index)
-        print("selectedManufacturer is \(selectedManufacturer)")
-
+        //let selectedManufacturer = manufacturerManager.carElement(at: index)
+        //print("selectedManufacturer is \(selectedManufacturer)")
     }
 
     func setUpNotification() {
-        let parsingnotificationName = Notification.Name("ManufacturersParsingCompleted")
+        let parsingnotificationName = Notification.Name(GlobalConstants.ManufacturersParsingCompletedNotificationID)
         NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.updateUI), name: parsingnotificationName, object: nil)
-        let selctionNotificationName = Notification.Name("ManufacturerCellSelected")
+        let selctionNotificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
         NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.manufacturerSelected(sender:)), name: selctionNotificationName, object: nil)
     }
 

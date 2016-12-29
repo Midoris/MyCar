@@ -11,7 +11,7 @@ import Foundation
 class ManufacturerParsingCompletionNotificator: IParsingCompletionNotificator {
 
     func notifyParsingCompletion() {
-        let notificationName = Notification.Name("ManufacturersParsingCompleted")
+        let notificationName = Notification.Name(GlobalConstants.ManufacturersParsingCompletedNotificationID)
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: nil)
     }
     

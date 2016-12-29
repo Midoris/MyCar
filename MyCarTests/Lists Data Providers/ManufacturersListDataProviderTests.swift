@@ -65,6 +65,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
     }
 
     func testConfigCell_GetsCalledInCellForRow() {
+
         let mockTableView = MockTableView.mockTableView(with: sut)
         let manufacturer = Manufacturer(id: "070", name: "Audi")
         sut.manager?.add(carElement: manufacturer)
@@ -77,6 +78,8 @@ class ManufacturersListDataProviderTests: XCTestCase {
     func testSelectionCell_SendsNotification() {
         let manufacturer = Manufacturer(id: "070", name: "Audi")
         sut.manager?.add(carElement: manufacturer)
+        tableView.reloadData()
+        XCTAssertEqual(sut.manager?.elementsCount, 1)
         expectation(forNotification: "ManufacturerCellSelected", object: nil) { (notification) -> Bool in
             guard let index = notification.userInfo?["index"] as? Int else {
                 return false

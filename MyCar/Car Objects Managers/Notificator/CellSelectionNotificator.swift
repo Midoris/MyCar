@@ -11,7 +11,7 @@ import Foundation
 class ManufacturerCellSelectionNotificator: ICellSelectionNotificator {
 
     func notifyCellSelection(at index: Int) {
-        let notificationName = Notification.Name("ManufacturerCellSelected")
+        let notificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: ["index" : index])
     }
 

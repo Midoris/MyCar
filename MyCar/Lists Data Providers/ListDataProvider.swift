@@ -11,10 +11,10 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    var manager: Manager!
-    var notificator: ICellSelectionNotificator!
+    var manager: Manager?
+    var notificator: ICellSelectionNotificator?
     private var loadingCellNamber: Int {
-        return manager.elementsCount - 1
+        return manager!.elementsCount - 1
     }
     private var pageNumber = 0
     private var oldLoadingNumber = 0
@@ -45,7 +45,7 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
             if indexPath.row == loadingCellNamber {
                 oldLoadingNumber = loadingCellNamber
                 pageNumber += 1
-                manager.fetchAdditionalCarElemets(for: pageNumber)
+                manager?.fetchAdditionalCarElemets(for: pageNumber)
             }
         }
     }
