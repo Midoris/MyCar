@@ -10,21 +10,21 @@ import Foundation
 
 class Manager {
 
-    private var parser: Parser
-    private var notificator: ParsingCompletionNotificator
-    private var carElemnts = [CarElement]()
+    private var parser: IParser
+    private var notificator: IParsingCompletionNotificator
+    private var carElemnts = [ICarElement]()
     var elementsCount: Int { return carElemnts.count }
 
-    init(parser: Parser, notificator: ParsingCompletionNotificator) {
+    init(parser: IParser, notificator: IParsingCompletionNotificator) {
         self.parser = parser
         self.notificator = notificator
     }
 
-    func add(carElement: CarElement) {
+    func add(carElement: ICarElement) {
         carElemnts.append(carElement)
     }
 
-    func carElement(at index: Int) -> CarElement {
+    func carElement(at index: Int) -> ICarElement {
         return carElemnts[index]
     }
 

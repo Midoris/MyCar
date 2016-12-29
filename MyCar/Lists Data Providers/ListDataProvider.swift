@@ -12,9 +12,9 @@ import UIKit
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     var manager: Manager?
-    var notificator: CellSelectionNotificator?
+    var notificator: ICellSelectionNotificator?
 
-    init(manager: Manager, notificator: CellSelectionNotificator) {
+    init(manager: Manager, notificator: ICellSelectionNotificator) {
         self.manager = manager
         self.notificator = notificator
     }

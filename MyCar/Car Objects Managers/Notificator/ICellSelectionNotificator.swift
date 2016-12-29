@@ -1,5 +1,5 @@
 //
-//  CarElement.swift
+//  ICellSelectionNotificator.swift
 //  MyCar
 //
 //  Created by Ievgenii Iablonskyi on 29/12/2016.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ICarElement {
-    var name: String { get }
+protocol ICellSelectionNotificator {
+    func notifyCellSelection(at index: Int)
 }

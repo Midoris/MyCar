@@ -13,8 +13,8 @@ class ManufacturersListViewController: UIViewController {
     @IBOutlet weak var manufacturersTableView: UITableView!
     var manufacturerManager: Manager!
     var manufacturersListDataProvider: ListDataProvider?
-    let cellSelectionNotificator = CellSelectionNotificator(notificationId: "ManufacturerCellSelected")
-    let parsingCompletionNotificator = ParsingCompletionNotificator(notificationId: "ManufacturersParsingCompleted")
+    let cellSelectionNotificator = ManufacturerCellSelectionNotificator()
+    let parsingCompletionNotificator = ManufacturerParsingCompletionNotificator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,6 @@ class ManufacturersListViewController: UIViewController {
         DispatchQueue.main.async {
             self.manufacturersTableView.reloadData()
         }
-
     }
 
     func manufacturerSelected(sender: Notification) {

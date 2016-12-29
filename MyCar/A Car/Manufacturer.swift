@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Manufacturer: CarElement {
+struct Manufacturer: ICarElement {
     let id: String
     let name: String
 }

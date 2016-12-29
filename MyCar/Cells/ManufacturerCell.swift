@@ -23,7 +23,7 @@ class ManufacturerCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configCell(with carElement: CarElement) {
+    func configCell(with carElement: ICarElement) {
         manufacturerNameLabel.text = carElement.name
     }
 

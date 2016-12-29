@@ -25,12 +25,14 @@
 		06768B0A1E139CD6001114DC /* ManufacturerCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B091E139CD6001114DC /* ManufacturerCellTests.swift */; };
 		06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B0C1E139E08001114DC /* ManufacturerCell.swift */; };
 		06768B101E14B554001114DC /* CarElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B0F1E14B554001114DC /* CarElement.swift */; };
-		06768B121E14D256001114DC /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B111E14D256001114DC /* Parser.swift */; };
+		06768B121E14D256001114DC /* IParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B111E14D256001114DC /* IParser.swift */; };
 		06768B141E14D2D2001114DC /* ManufacturersParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B131E14D2D2001114DC /* ManufacturersParser.swift */; };
 		06768B161E14D306001114DC /* ModelsParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B151E14D306001114DC /* ModelsParser.swift */; };
 		06768B181E14D6C2001114DC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B171E14D6C2001114DC /* APIClient.swift */; };
 		06768B1A1E14DEEC001114DC /* CellSelectionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B191E14DEEC001114DC /* CellSelectionNotificator.swift */; };
-		06768B1D1E14E703001114DC /* ParsingCompletionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B1C1E14E703001114DC /* ParsingCompletionNotificator.swift */; };
+		06768B1D1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B1C1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift */; };
+		06768B211E14F6E1001114DC /* ICellSelectionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B201E14F6E1001114DC /* ICellSelectionNotificator.swift */; };
+		06768B231E14F8A3001114DC /* IParsingCompletionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B221E14F8A3001114DC /* IParsingCompletionNotificator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +68,14 @@
 		06768B091E139CD6001114DC /* ManufacturerCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerCellTests.swift; path = Cells/ManufacturerCellTests.swift; sourceTree = "<group>"; };
 		06768B0C1E139E08001114DC /* ManufacturerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerCell.swift; path = Cells/ManufacturerCell.swift; sourceTree = "<group>"; };
 		06768B0F1E14B554001114DC /* CarElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarElement.swift; path = "A Car/CarElement.swift"; sourceTree = "<group>"; };
-		06768B111E14D256001114DC /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		06768B111E14D256001114DC /* IParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IParser.swift; sourceTree = "<group>"; };
 		06768B131E14D2D2001114DC /* ManufacturersParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManufacturersParser.swift; sourceTree = "<group>"; };
 		06768B151E14D306001114DC /* ModelsParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsParser.swift; sourceTree = "<group>"; };
 		06768B171E14D6C2001114DC /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = "API Client/APIClient.swift"; sourceTree = "<group>"; };
 		06768B191E14DEEC001114DC /* CellSelectionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellSelectionNotificator.swift; path = "Car Objects Managers/Notificator/CellSelectionNotificator.swift"; sourceTree = "<group>"; };
-		06768B1C1E14E703001114DC /* ParsingCompletionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParsingCompletionNotificator.swift; path = "Car Objects Managers/Notificator/ParsingCompletionNotificator.swift"; sourceTree = "<group>"; };
+		06768B1C1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerParsingCompletionNotificator.swift; path = "Car Objects Managers/Notificator/ManufacturerParsingCompletionNotificator.swift"; sourceTree = "<group>"; };
+		06768B201E14F6E1001114DC /* ICellSelectionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ICellSelectionNotificator.swift; path = "Car Objects Managers/Notificator/ICellSelectionNotificator.swift"; sourceTree = "<group>"; };
+		06768B221E14F8A3001114DC /* IParsingCompletionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IParsingCompletionNotificator.swift; path = "Car Objects Managers/Notificator/IParsingCompletionNotificator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +234,10 @@
 		06768B1B1E14DEF2001114DC /* Notificator */ = {
 			isa = PBXGroup;
 			children = (
+				06768B201E14F6E1001114DC /* ICellSelectionNotificator.swift */,
+				06768B221E14F8A3001114DC /* IParsingCompletionNotificator.swift */,
 				06768B191E14DEEC001114DC /* CellSelectionNotificator.swift */,
-				06768B1C1E14E703001114DC /* ParsingCompletionNotificator.swift */,
+				06768B1C1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift */,
 			);
 			name = Notificator;
 			sourceTree = "<group>";
@@ -247,7 +253,7 @@
 		06768B1F1E14ED93001114DC /* Parser */ = {
 			isa = PBXGroup;
 			children = (
-				06768B111E14D256001114DC /* Parser.swift */,
+				06768B111E14D256001114DC /* IParser.swift */,
 				06768B131E14D2D2001114DC /* ManufacturersParser.swift */,
 				06768B151E14D306001114DC /* ModelsParser.swift */,
 			);
@@ -362,17 +368,19 @@
 				06768B141E14D2D2001114DC /* ManufacturersParser.swift in Sources */,
 				06768AC81E137740001114DC /* AppDelegate.swift in Sources */,
 				06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */,
-				06768B121E14D256001114DC /* Parser.swift in Sources */,
+				06768B121E14D256001114DC /* IParser.swift in Sources */,
 				06768B1A1E14DEEC001114DC /* CellSelectionNotificator.swift in Sources */,
 				06768AEE1E137845001114DC /* Model.swift in Sources */,
-				06768B1D1E14E703001114DC /* ParsingCompletionNotificator.swift in Sources */,
+				06768B1D1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift in Sources */,
 				06768AF41E1378DD001114DC /* Manager.swift in Sources */,
 				06768B161E14D306001114DC /* ModelsParser.swift in Sources */,
 				06768B001E139146001114DC /* ManufacturersListViewController.swift in Sources */,
 				06768B181E14D6C2001114DC /* APIClient.swift in Sources */,
 				06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */,
+				06768B211E14F6E1001114DC /* ICellSelectionNotificator.swift in Sources */,
 				06768B071E13944B001114DC /* ListDataProvider.swift in Sources */,
 				06768B101E14B554001114DC /* CarElement.swift in Sources */,
+				06768B231E14F8A3001114DC /* IParsingCompletionNotificator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  Parser.swift
+//  IParsingCompletionNotificator.swift
 //  MyCar
 //
 //  Created by Ievgenii Iablonskyi on 29/12/2016.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Parser {
-    func parse(carElementsDict: [String: AnyObject]?, error: Error?) -> [CarElement]
+protocol IParsingCompletionNotificator {
+    func notifyParsingCompletion()
 }

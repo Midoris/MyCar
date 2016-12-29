@@ -17,10 +17,10 @@ class ManufacturersListDataProviderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let paresrNotificator = ParsingCompletionNotificator(notificationId: "ManufacturersParsingCompleted")
+        let paresrNotificator = ManufacturerParsingCompletionNotificator()
         let parser = ManufacturersParser()
         let manager = Manager(parser: parser, notificator: paresrNotificator)
-        let cellSelectionNotificator = CellSelectionNotificator(notificationId: "ManufacturerCellSelected")
+        let cellSelectionNotificator = ManufacturerCellSelectionNotificator()
         sut = ListDataProvider(manager: manager, notificator: cellSelectionNotificator)
         sut.manager = manager
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -113,7 +113,7 @@ extension ManufacturersListDataProviderTests {
 
         var manufacturer: Manufacturer?
 
-        override func configCell(with carElement: CarElement) {
+        override func configCell(with carElement: ICarElement) {
             self.manufacturer = carElement as? Manufacturer
         }
     }

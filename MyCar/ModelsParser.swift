@@ -8,9 +8,9 @@
 
 import Foundation
 
-class ModelsParser: Parser {
+class ModelsParser: IParser {
 
-    func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [CarElement] {
+    func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [ICarElement] {
         guard let carElementsDict = carElementsDict else { fatalError() }
         guard let modelsDict = carElementsDict["wkda"] as? [String: String] else { fatalError() }
         var models = [Model]()

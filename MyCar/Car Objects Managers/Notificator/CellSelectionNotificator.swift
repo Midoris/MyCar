@@ -1,5 +1,5 @@
 //
-//  CellSelectionNotificator.swift
+//  ManufacturerCellSelectionNotificator.swift
 //  MyCar
 //
 //  Created by Ievgenii Iablonskyi on 29/12/2016.
@@ -8,19 +8,12 @@
 
 import Foundation
 
-class CellSelectionNotificator {
-
-    private var notificationId: String
-
-    init(notificationId: String) {
-        self.notificationId = notificationId
-    }
+class ManufacturerCellSelectionNotificator: ICellSelectionNotificator {
 
     func notifyCellSelection(at index: Int) {
-        let notificationName = Notification.Name(notificationId)
+        let notificationName = Notification.Name("ManufacturerCellSelected")
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: ["index" : index])
     }
-
 
 }
 
