@@ -11,15 +11,16 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    var manager: Manager?
+    var manager: CarElementManager?
     var notificator: ICellSelectionNotificator?
+
     private var loadingCellNamber: Int {
         return manager!.elementsCount - 1
     }
-    private var pageNumber = 0
+    private var pageNumber = 1
     private var oldLoadingNumber = 0
 
-    init(manager: Manager, notificator: ICellSelectionNotificator) {
+    init(manager: CarElementManager, notificator: ICellSelectionNotificator) {
         self.manager = manager
         self.notificator = notificator
     }
@@ -40,14 +41,24 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
         notificator?.notifyCellSelection(at: indexPath.row)
     }
 
+
+    var nextLoadingPoint: Int {
+        return (manager?.elementsCount)! - 3
+    }
+    var lastLoadingPoint = 0
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if loadingCellNamber > oldLoadingNumber {
-            if indexPath.row == loadingCellNamber {
-                oldLoadingNumber = loadingCellNamber
-                pageNumber += 1
+
+        if nextLoadingPoint > lastLoadingPoint {
+            if indexPath.row == nextLoadingPoint {
                 manager?.fetchAdditionalCarElemets(for: pageNumber)
+                lastLoadingPoint = nextLoadingPoint
+                pageNumber += 1
             }
         }
+
+
     }
 
+
 }
+

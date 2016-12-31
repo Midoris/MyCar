@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Manager {
+class CarElementManager {
 
     private var parser: IParser
     private var notificator: IParsingCompletionNotificator
@@ -23,12 +23,6 @@ class Manager {
         self.urlGenerator = urlGenerator
         self.apiClient = apiClient
     }
-
-    /*
-    func add(carElement: ICarElement) {
-        carElemnts.append(carElement)
-    }
- */
 
     func carElement(at index: Int) -> ICarElement {
         return carElemnts[index]

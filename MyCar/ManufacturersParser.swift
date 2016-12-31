@@ -14,11 +14,15 @@ class ManufacturersParser: IParser {
         guard let carElementsDict = carElementsDict else { fatalError() }
         guard let manufacturersDict = carElementsDict["wkda"] as? [String: String] else { fatalError() }
         var manufacturers = [Manufacturer]()
-        for(id, name) in manufacturersDict {
+        for (id, name) in manufacturersDict {
             let manufacturer = Manufacturer(id: id, name: name)
             manufacturers.append(manufacturer)
         }
-        return manufacturers
+        return sortedByName(manufacturers: manufacturers)
+    }
+
+    func sortedByName(manufacturers: [Manufacturer]) -> [Manufacturer] {
+        return manufacturers.sorted { $0.name < $1.name }
     }
     
 }

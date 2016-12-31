@@ -21,7 +21,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
         let parser = ManufacturersParser()
         let manufacturerURLGenerator = ManufacturerURLGenerator()
         let apiClient = APIClient()
-        let manager = Manager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
+        let manager = CarElementManager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
         let cellSelectionNotificator = ManufacturerCellSelectionNotificator()
         sut = ListDataProvider(manager: manager, notificator: cellSelectionNotificator)
         sut.manager = manager

@@ -12,7 +12,7 @@ import XCTest
 
 class ManufacturerManagerTests: XCTestCase {
 
-    var sut: Manager!
+    var sut: CarElementManager!
 
     override func setUp() {
         super.setUp()
@@ -22,7 +22,7 @@ class ManufacturerManagerTests: XCTestCase {
         let parser = ManufacturersParser()
         let manufacturerURLGenerator = ManufacturerURLGenerator()
         let apiClient = APIClient()
-        sut = Manager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
+        sut = CarElementManager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
     }
 
     override func tearDown() {

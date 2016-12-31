@@ -23,7 +23,7 @@ class ModelURLGenerator: IURLGenerator {
     }
 
     func urlFor(page number: Int) throws -> URL {
-        let url = URL(string: "\(URLElementsConstsnts.BaseURL)/v1/car-types/main-types?manufacturer=\(manufacturerID)&page\(number)&pageSize=\(URLElementsConstsnts.PageSize)&wa_key=\(URLElementsConstsnts.Key)")
+        let url = URL(string: "\(URLElementsConstsnts.BaseURL)/v1/car-types/main-types?manufacturer=\(manufacturerID)&page=\(number)&pageSize=\(URLElementsConstsnts.PageSize)&wa_key=\(URLElementsConstsnts.Key)")
         guard url != nil else { throw URLGeneratorError.notAbleGenerateURL }
         return url!
     }

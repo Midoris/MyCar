@@ -14,11 +14,15 @@ class ModelsParser: IParser {
         guard let carElementsDict = carElementsDict else { fatalError() }
         guard let modelsDict = carElementsDict["wkda"] as? [String: String] else { fatalError() }
         var models = [Model]()
-        for(_, name) in modelsDict {
+        for (_, name) in modelsDict {
             let model = Model(name: name)
             models.append(model)
         }
-        return models
+        return sortedByName(models: models)
     }
-    
+
+    func sortedByName(models: [Model]) -> [Model] {
+        return models.sorted { $0.name < $1.name }
+    }
+
 }
