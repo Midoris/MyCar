@@ -11,18 +11,16 @@ import Foundation
 class ManufacturerURLGenerator: IURLGenerator {
 
     func urlForFirstPage() throws -> URL {
-        let url = URL(string: "http://api.wkda-test.com/v1/car-types/manufacturer?page=0&pageSize=\(URLElementsConstsnts.PageSize)&wa_key=\(URLElementsConstsnts.Key)")
-        guard url != nil else { throw URLGeneratorError.notAbleGenerateURl }
+        let url = URL(string: "\(URLElementsConstsnts.BaseURL)/v1/car-types/manufacturer?page=0&pageSize=\(URLElementsConstsnts.PageSize)&wa_key=\(URLElementsConstsnts.Key)")
+        guard url != nil else { throw URLGeneratorError.notAbleGenerateURL }
         return url!
     }
 
     func urlFor(page number: Int) throws -> URL {
-        let url = URL(string: "http://api.wkda-test.com/v1/car-types/manufacturer?page=\(number)&pageSize=\(URLElementsConstsnts.PageSize)&wa_key=\(URLElementsConstsnts.Key)")
-        guard url != nil else { throw URLGeneratorError.notAbleGenerateURl }
+        let url = URL(string: "\(URLElementsConstsnts.BaseURL)/v1/car-types/manufacturer?page=\(number)&pageSize=\(URLElementsConstsnts.PageSize)&wa_key=\(URLElementsConstsnts.Key)")
+        guard url != nil else { throw URLGeneratorError.notAbleGenerateURL }
         return url!
     }
+
 }
 
-enum URLGeneratorError: Error {
-    case notAbleGenerateURl
-}

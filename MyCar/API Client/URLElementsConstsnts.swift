@@ -9,6 +9,7 @@
 import Foundation
 
 struct URLElementsConstsnts {
+    static let BaseURL = "http://api.wkda-test.com"
     static let Key = "coding-puzzle-client-449cc9d"
     static let PageSize = 15
 }

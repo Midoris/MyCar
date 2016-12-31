@@ -12,3 +12,7 @@ protocol IURLGenerator {
     func urlForFirstPage() throws -> URL
     func urlFor(page number: Int) throws -> URL
 }
+
+enum URLGeneratorError: Error {
+    case notAbleGenerateURL
+}

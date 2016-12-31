@@ -8,9 +8,9 @@
 
 import Foundation
 
-class APIClient {
+class APIClient: IAPICLient {
 
-    lazy var session: CarURLSession = URLSession.shared
+    lazy var session: ICarURLSession = URLSession.shared
 
     func callAPI(with url: URL, completion: @escaping ([String: AnyObject]?, Error?) -> Void) {
         let task = session.dataTask(with: url) { (data, responss, error) in
@@ -41,9 +41,9 @@ enum WebServiceError: Error {
     case responseError
 }
 
-protocol CarURLSession {
+protocol ICarURLSession {
     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
 }
 
-extension URLSession: CarURLSession {
+extension URLSession: ICarURLSession {
 }

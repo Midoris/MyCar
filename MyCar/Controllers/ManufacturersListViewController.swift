@@ -21,16 +21,18 @@ class ManufacturersListViewController: UIViewController {
         let manufacturersParser = ManufacturersParser()
 
         let manufacturerURLGenerator = ManufacturerURLGenerator()
-        manufacturerManager = Manager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator)
-        manufacturersListDataProvider = ListDataProvider(manager: self.manufacturerManager, notificator: cellSelectionNotificator)
+        let apiClient = APIClient()
+        manufacturerManager = Manager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
+        manufacturersListDataProvider = ListDataProvider(manager: manufacturerManager, notificator: cellSelectionNotificator)
 
 
         manufacturersTableView.dataSource = manufacturersListDataProvider
         manufacturersTableView.delegate = manufacturersListDataProvider
 
+        setUpNotification()
         manufacturerManager?.fetchCarElemets()
 
-        setUpNotification()
+
     }
 
     func updateUI() {

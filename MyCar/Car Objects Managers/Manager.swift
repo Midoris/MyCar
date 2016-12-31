@@ -13,23 +13,30 @@ class Manager {
     private var parser: IParser
     private var notificator: IParsingCompletionNotificator
     private var urlGenerator: IURLGenerator
+    private var apiClient: IAPICLient
     private var carElemnts = [ICarElement]()
     var elementsCount: Int { return carElemnts.count }
 
-    let apiClient = APIClient()
-
-    init(parser: IParser, notificator: IParsingCompletionNotificator, urlGenerator: IURLGenerator) {
+    init(parser: IParser, notificator: IParsingCompletionNotificator, urlGenerator: IURLGenerator, apiClient: IAPICLient) {
         self.parser = parser
         self.notificator = notificator
         self.urlGenerator = urlGenerator
+        self.apiClient = apiClient
     }
 
+    /*
     func add(carElement: ICarElement) {
         carElemnts.append(carElement)
     }
+ */
 
     func carElement(at index: Int) -> ICarElement {
         return carElemnts[index]
+    }
+
+    func add(parsedCarElements: [ICarElement]) {
+        self.carElemnts += parsedCarElements
+        notificator.notifyParsingCompletion()
     }
 
     func removeAllCarElemnts() {
@@ -59,9 +66,8 @@ class Manager {
     }
 
     func parse(carElementsDict: [String : AnyObject]?, error: Error?) {
-        let careElements = parser.parse(carElementsDict: carElementsDict, error: error)
-        self.carElemnts += careElements
-        notificator.notifyParsingCompletion()
+        let parsedCarElements = parser.parse(carElementsDict: carElementsDict, error: error)
+        add(parsedCarElements: parsedCarElements)
     }
-    
+
 }

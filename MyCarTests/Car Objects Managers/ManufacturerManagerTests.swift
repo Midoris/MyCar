@@ -20,7 +20,9 @@ class ManufacturerManagerTests: XCTestCase {
 
         let paresrNotificator = ManufacturerParsingCompletionNotificator()
         let parser = ManufacturersParser()
-        sut = Manager(parser: parser, notificator: paresrNotificator)
+        let manufacturerURLGenerator = ManufacturerURLGenerator()
+        let apiClient = APIClient()
+        sut = Manager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
     }
 
     override func tearDown() {
@@ -33,13 +35,13 @@ class ManufacturerManagerTests: XCTestCase {
     }
 
     func testManufacturersCount_AfterAddingOneItem_IsOne() {
-        sut.add(carElement: Manufacturer(id: "101", name: "BMW"))
+        sut.add(parsedCarElements: [Manufacturer(id: "101", name: "BMW")])
         XCTAssertEqual(sut.elementsCount, 1)
     }
 
     func testManufacturerAtIndex_ShouldReturnPreviouslyAddedItem() {
         let manufacturer = Manufacturer(id: "101", name: "BMW")
-        sut.add(carElement: manufacturer)
+        sut.add(parsedCarElements: [manufacturer])
         let returnedManufacturer = sut.carElement(at: 0) as! Manufacturer
         XCTAssertEqual(manufacturer.id, returnedManufacturer.id)
         XCTAssertEqual(manufacturer.name, returnedManufacturer.name)
@@ -47,7 +49,7 @@ class ManufacturerManagerTests: XCTestCase {
 
     func testRemoveAllManufacturers_ShouldResultInCountBeZero() {
         let manufacturer = Manufacturer(id: "101", name: "BMW")
-        sut.add(carElement: manufacturer)
+        sut.add(parsedCarElements: [manufacturer])
         XCTAssertEqual(sut.elementsCount, 1)
         sut.removeAllCarElemnts()
         XCTAssertEqual(sut.elementsCount, 0)
