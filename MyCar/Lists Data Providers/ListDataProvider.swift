@@ -13,12 +13,7 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     var manager: CarElementManager?
     var notificator: ICellSelectionNotificator?
-
-    private var loadingCellNamber: Int {
-        return manager!.elementsCount - 1
-    }
-    private var pageNumber = 1
-    private var oldLoadingNumber = 0
+    let paganator = Paganator()
 
     init(manager: CarElementManager, notificator: ICellSelectionNotificator) {
         self.manager = manager
@@ -41,24 +36,13 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
         notificator?.notifyCellSelection(at: indexPath.row)
     }
 
-
-    var nextLoadingPoint: Int {
-        return (manager?.elementsCount)! - 3
-    }
-    var lastLoadingPoint = 0
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-
-        if nextLoadingPoint > lastLoadingPoint {
-            if indexPath.row == nextLoadingPoint {
-                manager?.fetchAdditionalCarElemets(for: pageNumber)
-                lastLoadingPoint = nextLoadingPoint
-                pageNumber += 1
-            }
-        }
-
-
+        paganator.performPagination(for: indexPath.row, using: (manager?.fetchAdditionalCarElemets)!, elementsCount: manager?.elementsCount ?? 0)
     }
-
 
 }
+
+
+
+
 

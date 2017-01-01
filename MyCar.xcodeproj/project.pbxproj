@@ -39,6 +39,7 @@
 		06768B2B1E154829001114DC /* IURLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B2A1E154829001114DC /* IURLGenerator.swift */; };
 		06768B2D1E154963001114DC /* ModelURLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B2C1E154963001114DC /* ModelURLGenerator.swift */; };
 		068E54E11E160DD700A9CA32 /* IAPICLient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E01E160DD700A9CA32 /* IAPICLient.swift */; };
+		068E54E61E18B40F00A9CA32 /* Paganator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E51E18B40F00A9CA32 /* Paganator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		06768B2A1E154829001114DC /* IURLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IURLGenerator.swift; path = "API Client/IURLGenerator.swift"; sourceTree = "<group>"; };
 		06768B2C1E154963001114DC /* ModelURLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelURLGenerator.swift; path = "API Client/ModelURLGenerator.swift"; sourceTree = "<group>"; };
 		068E54E01E160DD700A9CA32 /* IAPICLient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPICLient.swift; path = "API Client/IAPICLient.swift"; sourceTree = "<group>"; };
+		068E54E51E18B40F00A9CA32 /* Paganator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paganator.swift; path = "Lists Data Providers/Paganator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				06768B061E13944B001114DC /* ListDataProvider.swift */,
+				068E54E51E18B40F00A9CA32 /* Paganator.swift */,
 			);
 			name = "Lists Data Providers";
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				06768AC81E137740001114DC /* AppDelegate.swift in Sources */,
 				06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */,
 				06768B121E14D256001114DC /* IParser.swift in Sources */,
+				068E54E61E18B40F00A9CA32 /* Paganator.swift in Sources */,
 				06768B1A1E14DEEC001114DC /* ManufacturerCellSelectionNotificator.swift in Sources */,
 				06768B251E1515CA001114DC /* ManufacturerURLGenerator.swift in Sources */,
 				06768AEE1E137845001114DC /* Model.swift in Sources */,
