@@ -9,8 +9,12 @@
 import Foundation
 
 struct GlobalConstants {
+
     static let ManufacturerCellSelectedNotificationID = "ManufacturerCellSelected"
     static let ManufacturersParsingCompletedNotificationID = "ManufacturersParsingCompleted"
+    static let ModelCellSelectedNotificationID = "ModelCellSelected"
+    static let ModelsParsingCompletedNotificationID = "ModelsParsingCompleted"
 
     static let ManufacturersListVCID = "ManufacturersListViewController"
+    static let ModelsListVCID = "ModelsListViewController"
 }

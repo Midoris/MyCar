@@ -1,14 +1,14 @@
 //
-//  ManufacturerCellSelectionNotificator.swift
+//  ModelCellSelectionNotificator.swift
 //  MyCar
 //
-//  Created by Ievgenii Iablonskyi on 29/12/2016.
-//  Copyright © 2016 Ievgenii Iablonskyi. All rights reserved.
+//  Created by Ievgenii Iablonskyi on 01/01/2017.
+//  Copyright © 2017 Ievgenii Iablonskyi. All rights reserved.
 //
 
 import Foundation
 
-class ManufacturerCellSelectionNotificator: ICellSelectionNotificator {
+class ModelCellSelectionNotificator: ICellSelectionNotificator {
 
     func notifyCellSelection(at index: Int) {
         DispatchQueue.main.async {
@@ -17,9 +17,8 @@ class ManufacturerCellSelectionNotificator: ICellSelectionNotificator {
     }
 
     private func postNotification(with num: Int) {
-        let notificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
+        let notificationName = Notification.Name(GlobalConstants.ModelCellSelectedNotificationID)
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: ["index" : num])
     }
-
+    
 }
-

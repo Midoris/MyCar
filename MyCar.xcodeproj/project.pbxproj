@@ -40,6 +40,9 @@
 		06768B2D1E154963001114DC /* ModelURLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B2C1E154963001114DC /* ModelURLGenerator.swift */; };
 		068E54E11E160DD700A9CA32 /* IAPICLient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E01E160DD700A9CA32 /* IAPICLient.swift */; };
 		068E54E61E18B40F00A9CA32 /* Paganator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E51E18B40F00A9CA32 /* Paganator.swift */; };
+		068E54E81E18B6D500A9CA32 /* ModelsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E71E18B6D500A9CA32 /* ModelsListViewController.swift */; };
+		068E54EA1E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E91E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift */; };
+		068E54EC1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54EB1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,9 @@
 		06768B2C1E154963001114DC /* ModelURLGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelURLGenerator.swift; path = "API Client/ModelURLGenerator.swift"; sourceTree = "<group>"; };
 		068E54E01E160DD700A9CA32 /* IAPICLient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IAPICLient.swift; path = "API Client/IAPICLient.swift"; sourceTree = "<group>"; };
 		068E54E51E18B40F00A9CA32 /* Paganator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paganator.swift; path = "Lists Data Providers/Paganator.swift"; sourceTree = "<group>"; };
+		068E54E71E18B6D500A9CA32 /* ModelsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsListViewController.swift; path = Controllers/ModelsListViewController.swift; sourceTree = "<group>"; };
+		068E54E91E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelCellSelectionNotificator.swift; path = "Car Objects Managers/Notificator/ModelCellSelectionNotificator.swift"; sourceTree = "<group>"; };
+		068E54EB1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelParsingCompletionNotificator.swift; path = "Car Objects Managers/Notificator/ModelParsingCompletionNotificator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				06768AFF1E139146001114DC /* ManufacturersListViewController.swift */,
+				068E54E71E18B6D500A9CA32 /* ModelsListViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -254,6 +261,8 @@
 				06768B221E14F8A3001114DC /* IParsingCompletionNotificator.swift */,
 				06768B191E14DEEC001114DC /* ManufacturerCellSelectionNotificator.swift */,
 				06768B1C1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift */,
+				068E54E91E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift */,
+				068E54EB1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift */,
 			);
 			name = Notificator;
 			sourceTree = "<group>";
@@ -394,7 +403,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				068E54EA1E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift in Sources */,
+				068E54E81E18B6D500A9CA32 /* ModelsListViewController.swift in Sources */,
 				06768B141E14D2D2001114DC /* ManufacturersParser.swift in Sources */,
+				068E54EC1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift in Sources */,
 				06768B2B1E154829001114DC /* IURLGenerator.swift in Sources */,
 				06768B291E151C57001114DC /* GlobalConstants.swift in Sources */,
 				06768AC81E137740001114DC /* AppDelegate.swift in Sources */,

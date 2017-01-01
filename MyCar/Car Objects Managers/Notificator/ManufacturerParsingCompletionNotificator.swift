@@ -11,6 +11,12 @@ import Foundation
 class ManufacturerParsingCompletionNotificator: IParsingCompletionNotificator {
 
     func notifyParsingCompletion() {
+        DispatchQueue.main.async {
+            self.postNotification()
+        }
+    }
+
+    private func postNotification() {
         let notificationName = Notification.Name(GlobalConstants.ManufacturersParsingCompletedNotificationID)
         NotificationCenter.default.post(name: notificationName, object: self, userInfo: nil)
     }

@@ -68,6 +68,64 @@
             </objects>
             <point key="canvasLocation" x="949.60000000000002" y="156.07196401799101"/>
         </scene>
+        <!--Models List View Controller-->
+        <scene sceneID="bem-8N-Tvw">
+            <objects>
+                <viewController storyboardIdentifier="ModelsListViewController" id="dGf-LQ-TNO" customClass="ModelsListViewController" customModule="MyCar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hOV-Hw-8eM"/>
+                        <viewControllerLayoutGuide type="bottom" id="9pT-hm-Ahm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c8J-ea-j2x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eJL-kc-lTP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ICarElementCell" id="cTD-Oi-1e9" customClass="ICarElementCell" customModule="MyCar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cTD-Oi-1e9" id="LXv-NI-nDp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Model Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr8-mI-73F">
+                                                    <rect key="frame" x="139" y="11" width="97" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Jr8-mI-73F" firstAttribute="centerX" secondItem="LXv-NI-nDp" secondAttribute="centerX" id="LqD-3W-hSS"/>
+                                                <constraint firstItem="Jr8-mI-73F" firstAttribute="centerY" secondItem="LXv-NI-nDp" secondAttribute="centerY" id="p8b-lt-Tjq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iCarElementNameLabel" destination="Jr8-mI-73F" id="GIu-TV-Smq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eJL-kc-lTP" secondAttribute="trailing" id="05X-LC-lBz"/>
+                            <constraint firstItem="eJL-kc-lTP" firstAttribute="bottom" secondItem="9pT-hm-Ahm" secondAttribute="top" id="Eo6-Sf-cs2"/>
+                            <constraint firstItem="eJL-kc-lTP" firstAttribute="leading" secondItem="c8J-ea-j2x" secondAttribute="leading" id="KLV-1Z-Kdg"/>
+                            <constraint firstItem="eJL-kc-lTP" firstAttribute="top" secondItem="c8J-ea-j2x" secondAttribute="top" id="qmM-4z-Ak2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="modelsTableView" destination="eJL-kc-lTP" id="LyS-Xe-5xp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KNo-ds-FY0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="156"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="YBg-2C-5y5">
             <objects>

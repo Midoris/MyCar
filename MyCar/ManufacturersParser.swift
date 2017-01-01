@@ -21,7 +21,7 @@ class ManufacturersParser: IParser {
         return sortedByName(manufacturers: manufacturers)
     }
 
-    func sortedByName(manufacturers: [Manufacturer]) -> [Manufacturer] {
+    private func sortedByName(manufacturers: [Manufacturer]) -> [Manufacturer] {
         return manufacturers.sorted { $0.name < $1.name }
     }
     

@@ -18,42 +18,51 @@ class ManufacturersListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let manufacturersParser = ManufacturersParser()
 
+        setUpDependencies()
+        setUpNotification()
+        manufacturerManager?.fetchCarElemets()
+    }
+
+    func setUpDependencies() {
+        let manufacturersParser = ManufacturersParser()
         let manufacturerURLGenerator = ManufacturerURLGenerator()
         let apiClient = APIClient()
         manufacturerManager = CarElementManager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
         manufacturersListDataProvider = ListDataProvider(manager: manufacturerManager!, notificator: cellSelectionNotificator)
-
-
         manufacturersTableView.dataSource = manufacturersListDataProvider
         manufacturersTableView.delegate = manufacturersListDataProvider
+    }
 
-        setUpNotification()
-        manufacturerManager?.fetchCarElemets()
-
-
+    func setUpNotification() {
+        let parsingNotificationName = Notification.Name(GlobalConstants.ManufacturersParsingCompletedNotificationID)
+        NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.updateUI), name: parsingNotificationName, object: nil)
+        let selctionNotificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
+        NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.manufacturerSelected(sender:)), name: selctionNotificationName, object: nil)
     }
 
     func updateUI() {
-        DispatchQueue.main.async {
-            self.manufacturersTableView.reloadData()
-        }
+        self.manufacturersTableView.reloadData()
     }
 
     func manufacturerSelected(sender: Notification) {
         guard let index = sender.userInfo?["index"] as? Int else {
             fatalError()
         }
-        //let selectedManufacturer = manufacturerManager.carElement(at: index)
-        //print("selectedManufacturer is \(selectedManufacturer)")
+        let selectedManufacturer = manufacturerManager?.carElement(at: index)
+        print("selectedManufacturer is \(selectedManufacturer)")
+        openModelsListVC(with: selectedManufacturer as! Manufacturer)
+
     }
 
-    func setUpNotification() {
-        let parsingnotificationName = Notification.Name(GlobalConstants.ManufacturersParsingCompletedNotificationID)
-        NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.updateUI), name: parsingnotificationName, object: nil)
-        let selctionNotificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
-        NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.manufacturerSelected(sender:)), name: selctionNotificationName, object: nil)
+    func openModelsListVC(with selectedManufacturer: Manufacturer) {
+        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "ModelsListViewController") as? ModelsListViewController {
+            // Pass some data
+            nextViewController.selectedManufacturer = selectedManufacturer
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
+
     }
+
 
 }

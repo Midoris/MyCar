@@ -21,7 +21,7 @@ class ModelsParser: IParser {
         return sortedByName(models: models)
     }
 
-    func sortedByName(models: [Model]) -> [Model] {
+    private func sortedByName(models: [Model]) -> [Model] {
         return models.sorted { $0.name < $1.name }
     }
 
