@@ -46,22 +46,18 @@ class ManufacturersListViewController: UIViewController {
     }
 
     func manufacturerSelected(sender: Notification) {
-        guard let index = sender.userInfo?["index"] as? Int else {
+        guard let index = sender.userInfo?[GlobalConstants.NotificationUserInfoKey] as? Int else {
             fatalError()
         }
         let selectedManufacturer = manufacturerManager?.carElement(at: index)
-        print("selectedManufacturer is \(selectedManufacturer)")
         openModelsListVC(with: selectedManufacturer as! Manufacturer)
-
     }
 
     func openModelsListVC(with selectedManufacturer: Manufacturer) {
-        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: "ModelsListViewController") as? ModelsListViewController {
-            // Pass some data
+        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: GlobalConstants.ModelsListVCID) as? ModelsListViewController {
             nextViewController.selectedManufacturer = selectedManufacturer
             navigationController?.pushViewController(nextViewController, animated: true)
         }
-
     }
 
 

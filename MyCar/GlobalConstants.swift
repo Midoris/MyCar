@@ -17,4 +17,10 @@ struct GlobalConstants {
 
     static let ManufacturersListVCID = "ManufacturersListViewController"
     static let ModelsListVCID = "ModelsListViewController"
+    static let CarVCID = "CarViewController"
+
+    static let ICarElementCellID = "ICarElementCell"
+
+    static let ParserKey = "wkda"
+    static let NotificationUserInfoKey = "index"
 }

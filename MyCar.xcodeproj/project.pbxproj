@@ -43,6 +43,9 @@
 		068E54E81E18B6D500A9CA32 /* ModelsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E71E18B6D500A9CA32 /* ModelsListViewController.swift */; };
 		068E54EA1E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54E91E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift */; };
 		068E54EC1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54EB1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift */; };
+		068E54EE1E18D31800A9CA32 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54ED1E18D31800A9CA32 /* AlertPresenter.swift */; };
+		068E54F01E18D55100A9CA32 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54EF1E18D55100A9CA32 /* CarViewController.swift */; };
+		068E54F21E18D88C00A9CA32 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54F11E18D88C00A9CA32 /* Car.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +99,9 @@
 		068E54E71E18B6D500A9CA32 /* ModelsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsListViewController.swift; path = Controllers/ModelsListViewController.swift; sourceTree = "<group>"; };
 		068E54E91E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelCellSelectionNotificator.swift; path = "Car Objects Managers/Notificator/ModelCellSelectionNotificator.swift"; sourceTree = "<group>"; };
 		068E54EB1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelParsingCompletionNotificator.swift; path = "Car Objects Managers/Notificator/ModelParsingCompletionNotificator.swift"; sourceTree = "<group>"; };
+		068E54ED1E18D31800A9CA32 /* AlertPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertPresenter.swift; path = Controllers/AlertPresenter.swift; sourceTree = "<group>"; };
+		068E54EF1E18D55100A9CA32 /* CarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarViewController.swift; path = Controllers/CarViewController.swift; sourceTree = "<group>"; };
+		068E54F11E18D88C00A9CA32 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Car.swift; path = "A Car/Car.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,7 @@
 				06768AE91E1377D2001114DC /* Manufacturer.swift */,
 				06768B0F1E14B554001114DC /* CarElement.swift */,
 				06768AED1E137845001114DC /* Model.swift */,
+				068E54F11E18D88C00A9CA32 /* Car.swift */,
 			);
 			name = "A Car";
 			sourceTree = "<group>";
@@ -209,6 +216,8 @@
 			children = (
 				06768AFF1E139146001114DC /* ManufacturersListViewController.swift */,
 				068E54E71E18B6D500A9CA32 /* ModelsListViewController.swift */,
+				068E54EF1E18D55100A9CA32 /* CarViewController.swift */,
+				068E54ED1E18D31800A9CA32 /* AlertPresenter.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -406,8 +415,10 @@
 				068E54EA1E18B8BE00A9CA32 /* ModelCellSelectionNotificator.swift in Sources */,
 				068E54E81E18B6D500A9CA32 /* ModelsListViewController.swift in Sources */,
 				06768B141E14D2D2001114DC /* ManufacturersParser.swift in Sources */,
+				068E54F01E18D55100A9CA32 /* CarViewController.swift in Sources */,
 				068E54EC1E18B91E00A9CA32 /* ModelParsingCompletionNotificator.swift in Sources */,
 				06768B2B1E154829001114DC /* IURLGenerator.swift in Sources */,
+				068E54EE1E18D31800A9CA32 /* AlertPresenter.swift in Sources */,
 				06768B291E151C57001114DC /* GlobalConstants.swift in Sources */,
 				06768AC81E137740001114DC /* AppDelegate.swift in Sources */,
 				06768AEA1E1377D2001114DC /* Manufacturer.swift in Sources */,
@@ -424,6 +435,7 @@
 				06768B001E139146001114DC /* ManufacturersListViewController.swift in Sources */,
 				06768B181E14D6C2001114DC /* APIClient.swift in Sources */,
 				06768B0D1E139E08001114DC /* ManufacturerCell.swift in Sources */,
+				068E54F21E18D88C00A9CA32 /* Car.swift in Sources */,
 				068E54E11E160DD700A9CA32 /* IAPICLient.swift in Sources */,
 				06768B211E14F6E1001114DC /* ICellSelectionNotificator.swift in Sources */,
 				06768B071E13944B001114DC /* ListDataProvider.swift in Sources */,

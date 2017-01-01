@@ -20,22 +20,21 @@ class ModelsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = selectedManufacturer?.name
+        setUpDependencies()
+        setUpNotification()
+        modelManager?.fetchCarElemets()
+    }
 
-
+    func setUpDependencies() {
         let modelsParser = ModelsParser()
         guard let selectedManufacturerID = selectedManufacturer?.id else { fatalError() }
         let modelURLGenerator = ModelURLGenerator(manufacturerID: selectedManufacturerID)
         let apiClient = APIClient()
         modelManager = CarElementManager(parser: modelsParser, notificator: parsingCompletionNotificator, urlGenerator: modelURLGenerator, apiClient: apiClient)
         modelsListDataProvider = ListDataProvider(manager: modelManager!, notificator: cellSelectionNotificator)
-
-
         modelsTableView.dataSource = modelsListDataProvider
         modelsTableView.delegate = modelsListDataProvider
-
-        setUpNotification()
-        modelManager?.fetchCarElemets()
-
     }
 
     func setUpNotification() {
@@ -46,21 +45,25 @@ class ModelsListViewController: UIViewController {
     }
 
     func updateUI() {
-        DispatchQueue.main.async {
-            self.modelsTableView.reloadData()
-        }
+        self.modelsTableView.reloadData()
     }
 
     func modelSelected(sender: Notification) {
-        guard let index = sender.userInfo?["index"] as? Int else {
+        guard let index = sender.userInfo?[GlobalConstants.NotificationUserInfoKey] as? Int else {
             fatalError()
         }
-        //let selectedManufacturer = manufacturerManager.carElement(at: index)
-        //print("selectedManufacturer is \(selectedManufacturer)")
+        let selectedModel = modelManager?.carElement(at: index) as! Model
+        openCarVC(with: selectedModel)
+    }
+
+    func openCarVC(with selectedModel: Model) {
+        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: GlobalConstants.CarVCID) as? CarViewController {
+            nextViewController.car = Car(manufacturer: selectedManufacturer!, model: selectedModel)
+            navigationController?.pushViewController(nextViewController, animated: true)
+        }
     }
 
 
 
-    
 
 }

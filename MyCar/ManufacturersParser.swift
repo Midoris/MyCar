@@ -12,7 +12,7 @@ class ManufacturersParser: IParser {
 
     func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [ICarElement] {
         guard let carElementsDict = carElementsDict else { fatalError() }
-        guard let manufacturersDict = carElementsDict["wkda"] as? [String: String] else { fatalError() }
+        guard let manufacturersDict = carElementsDict[GlobalConstants.ParserKey] as? [String: String] else { fatalError() }
         var manufacturers = [Manufacturer]()
         for (id, name) in manufacturersDict {
             let manufacturer = Manufacturer(id: id, name: name)

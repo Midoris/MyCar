@@ -25,7 +25,7 @@ class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ICarElementCell", for: indexPath) as! ICarElementCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.ICarElementCellID, for: indexPath) as! ICarElementCell
         guard let manager = manager else { fatalError() }
         let carElement = manager.carElement(at: indexPath.row)
         cell.configCell(with: carElement, for: indexPath.row)
