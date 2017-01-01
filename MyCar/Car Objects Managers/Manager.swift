@@ -60,7 +60,11 @@ class CarElementManager {
     }
 
     func parse(carElementsDict: [String : AnyObject]?, error: Error?) {
-        let parsedCarElements = parser.parse(carElementsDict: carElementsDict, error: error)
+        guard error == nil && carElementsDict != nil else {
+            AlertPresenter.showAlert(withTitle: "Ops", andMessage: "Sorry, we wasn't able to load the data")
+            return
+        }
+        let parsedCarElements = parser.parse(carElementsDict: carElementsDict!)
         add(parsedCarElements: parsedCarElements)
     }
 

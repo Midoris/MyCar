@@ -10,8 +10,7 @@ import Foundation
 
 class ModelsParser: IParser {
 
-    func parse(carElementsDict: [String : AnyObject]?, error: Error?) -> [ICarElement] {
-        guard let carElementsDict = carElementsDict else { fatalError() }
+    func parse(carElementsDict: [String : AnyObject]) -> [ICarElement] {
         guard let modelsDict = carElementsDict[GlobalConstants.ParserKey] as? [String: String] else { fatalError() }
         var models = [Model]()
         for (_, name) in modelsDict {

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol IParser {
-    func parse(carElementsDict: [String: AnyObject]?, error: Error?) -> [ICarElement]
+    func parse(carElementsDict: [String: AnyObject]) -> [ICarElement]
 }

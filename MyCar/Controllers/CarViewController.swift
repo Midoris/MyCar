@@ -15,14 +15,11 @@ class CarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-
         showSelectedCarAlert()
     }
 
     func showSelectedCarAlert() {
-        //guard car != nil else { fatalError() }
-        AlertPresenter.showAlert(withTitle: "You have selected:", andMessage: "\(car.manufacturer.name): \(car.model.name)", in: self)
+        AlertPresenter.showAlert(withTitle: "You have selected:", andMessage: "\(car.manufacturer.name): \(car.model.name)")
     }
 
 }

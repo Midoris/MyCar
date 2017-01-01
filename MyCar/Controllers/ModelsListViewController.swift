@@ -12,8 +12,8 @@ class ModelsListViewController: UIViewController {
 
     var selectedManufacturer: Manufacturer?
     @IBOutlet weak var modelsTableView: UITableView!
-    var modelManager: CarElementManager?
-    var modelsListDataProvider: ListDataProvider?
+    var modelManager: CarElementManager!
+    var modelsListDataProvider: ListDataProvider!
     let cellSelectionNotificator = ModelCellSelectionNotificator()
     let parsingCompletionNotificator = ModelParsingCompletionNotificator()
 
@@ -23,7 +23,7 @@ class ModelsListViewController: UIViewController {
         self.title = selectedManufacturer?.name
         setUpDependencies()
         setUpNotification()
-        modelManager?.fetchCarElemets()
+        modelManager.fetchCarElemets()
     }
 
     func setUpDependencies() {
@@ -31,8 +31,9 @@ class ModelsListViewController: UIViewController {
         guard let selectedManufacturerID = selectedManufacturer?.id else { fatalError() }
         let modelURLGenerator = ModelURLGenerator(manufacturerID: selectedManufacturerID)
         let apiClient = APIClient()
+        let paganator = Paganator()
         modelManager = CarElementManager(parser: modelsParser, notificator: parsingCompletionNotificator, urlGenerator: modelURLGenerator, apiClient: apiClient)
-        modelsListDataProvider = ListDataProvider(manager: modelManager!, notificator: cellSelectionNotificator)
+        modelsListDataProvider = ListDataProvider(manager: modelManager, notificator: cellSelectionNotificator, paganator: paganator)
         modelsTableView.dataSource = modelsListDataProvider
         modelsTableView.delegate = modelsListDataProvider
     }
@@ -52,7 +53,7 @@ class ModelsListViewController: UIViewController {
         guard let index = sender.userInfo?[GlobalConstants.NotificationUserInfoKey] as? Int else {
             fatalError()
         }
-        let selectedModel = modelManager?.carElement(at: index) as! Model
+        let selectedModel = modelManager.carElement(at: index) as! Model
         openCarVC(with: selectedModel)
     }
 

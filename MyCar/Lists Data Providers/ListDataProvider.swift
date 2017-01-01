@@ -11,33 +11,33 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    var manager: CarElementManager?
-    var notificator: ICellSelectionNotificator?
-    let paganator = Paganator()
+    var manager: CarElementManager
+    var notificator: ICellSelectionNotificator
+    let paganator: Paganator
 
-    init(manager: CarElementManager, notificator: ICellSelectionNotificator) {
+    init(manager: CarElementManager, notificator: ICellSelectionNotificator, paganator: Paganator) {
         self.manager = manager
         self.notificator = notificator
+        self.paganator = paganator
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manager?.elementsCount ?? 0
+        return manager.elementsCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GlobalConstants.ICarElementCellID, for: indexPath) as! ICarElementCell
-        guard let manager = manager else { fatalError() }
         let carElement = manager.carElement(at: indexPath.row)
         cell.configCell(with: carElement, for: indexPath.row)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        notificator?.notifyCellSelection(at: indexPath.row)
+        notificator.notifyCellSelection(at: indexPath.row)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        paganator.performPagination(for: indexPath.row, using: (manager?.fetchAdditionalCarElemets)!, elementsCount: manager?.elementsCount ?? 0)
+        paganator.performPagination(for: indexPath.row, using: manager.fetchAdditionalCarElemets, elementsCount: manager.elementsCount)
     }
 
 }

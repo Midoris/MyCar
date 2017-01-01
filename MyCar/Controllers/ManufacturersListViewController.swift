@@ -11,8 +11,8 @@ import UIKit
 class ManufacturersListViewController: UIViewController {
     
     @IBOutlet weak var manufacturersTableView: UITableView!
-    var manufacturerManager: CarElementManager?
-    var manufacturersListDataProvider: ListDataProvider?
+    var manufacturerManager: CarElementManager!
+    var manufacturersListDataProvider: ListDataProvider!
     let cellSelectionNotificator = ManufacturerCellSelectionNotificator()
     let parsingCompletionNotificator = ManufacturerParsingCompletionNotificator()
 
@@ -21,15 +21,16 @@ class ManufacturersListViewController: UIViewController {
 
         setUpDependencies()
         setUpNotification()
-        manufacturerManager?.fetchCarElemets()
+        manufacturerManager.fetchCarElemets()
     }
 
     func setUpDependencies() {
         let manufacturersParser = ManufacturersParser()
         let manufacturerURLGenerator = ManufacturerURLGenerator()
         let apiClient = APIClient()
+        let paganator = Paganator()
         manufacturerManager = CarElementManager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
-        manufacturersListDataProvider = ListDataProvider(manager: manufacturerManager!, notificator: cellSelectionNotificator)
+        manufacturersListDataProvider = ListDataProvider(manager: manufacturerManager, notificator: cellSelectionNotificator, paganator: paganator)
         manufacturersTableView.dataSource = manufacturersListDataProvider
         manufacturersTableView.delegate = manufacturersListDataProvider
     }

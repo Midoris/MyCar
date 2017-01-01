@@ -25,6 +25,10 @@ class ICarElementCell: UITableViewCell {
 
     func configCell(with carElement: ICarElement, for index: Int) {
         iCarElementNameLabel.text = carElement.name
+        self.setCellColor(for: index)
+    }
+
+    private func setCellColor(for index: Int) {
         switch index % 2 == 0 {
         case true:
             self.backgroundColor = UIColor.lightGray
