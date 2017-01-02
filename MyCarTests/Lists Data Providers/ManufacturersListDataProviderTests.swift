@@ -18,7 +18,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
+        controller = storyBoard.instantiateViewController(withIdentifier: GlobalConstants.ManufacturersListVCID) as! ManufacturersListViewController
         _ = controller.view
         sut = controller.manufacturersListDataProvider
         sut.manager = controller.manufacturerManager
@@ -101,7 +101,7 @@ extension ManufacturersListDataProviderTests {
         class func mockTableView(with dataSource: UITableViewDataSource) -> MockTableView {
             let mockTableView = MockTableView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), style: .plain)
             mockTableView.dataSource = dataSource
-            mockTableView.register(MockICarElementCell.self, forCellReuseIdentifier: "ICarElementCell")
+            mockTableView.register(MockICarElementCell.self, forCellReuseIdentifier: GlobalConstants.ICarElementCellID)
             return mockTableView
         }
     }

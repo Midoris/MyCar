@@ -34,12 +34,12 @@ class ManufacturerCellTests: XCTestCase {
 
     func dequeuedManufacturerCell(for indexPath: IndexPath) -> ICarElementCell {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
+        let controller = storyBoard.instantiateViewController(withIdentifier: GlobalConstants.ManufacturersListVCID) as! ManufacturersListViewController
         _ = controller.view
         let tableView = controller.manufacturersTableView
         let dataProvider = FakeDataSource()
         tableView?.dataSource = dataProvider
-        let cell = tableView?.dequeueReusableCell(withIdentifier: "ICarElementCell", for: indexPath) as! ICarElementCell
+        let cell = tableView?.dequeueReusableCell(withIdentifier: GlobalConstants.ICarElementCellID, for: indexPath) as! ICarElementCell
         return cell
     }
 
