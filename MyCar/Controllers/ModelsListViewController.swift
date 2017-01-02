@@ -12,7 +12,7 @@ class ModelsListViewController: UIViewController {
 
     var selectedManufacturer: Manufacturer?
     @IBOutlet weak var modelsTableView: UITableView!
-    var modelManager: CarElementManager!
+    var modelManager: CarElementsManager!
     var modelsListDataProvider: ListDataProvider!
     let cellSelectionNotificator = ModelCellSelectionNotificator()
     let parsingCompletionNotificator = ModelParsingCompletionNotificator()
@@ -22,7 +22,7 @@ class ModelsListViewController: UIViewController {
         super.viewDidLoad()
         self.title = selectedManufacturer?.name
         setUpDependencies()
-        setUpNotification()
+        setUpNotifications()
         modelManager.fetchCarElemets()
     }
 
@@ -32,13 +32,13 @@ class ModelsListViewController: UIViewController {
         let modelURLGenerator = ModelURLGenerator(manufacturerID: selectedManufacturerID)
         let apiClient = APIClient()
         let paganator = Paganator()
-        modelManager = CarElementManager(parser: modelsParser, notificator: parsingCompletionNotificator, urlGenerator: modelURLGenerator, apiClient: apiClient)
+        modelManager = CarElementsManager(parser: modelsParser, notificator: parsingCompletionNotificator, urlGenerator: modelURLGenerator, apiClient: apiClient)
         modelsListDataProvider = ListDataProvider(manager: modelManager, notificator: cellSelectionNotificator, paganator: paganator)
         modelsTableView.dataSource = modelsListDataProvider
         modelsTableView.delegate = modelsListDataProvider
     }
 
-    func setUpNotification() {
+    func setUpNotifications() {
         let parsingNotificationName = Notification.Name(GlobalConstants.ModelsParsingCompletedNotificationID)
         NotificationCenter.default.addObserver(self, selector: #selector(ModelsListViewController.updateUI), name: parsingNotificationName, object: nil)
         let selctionNotificationName = Notification.Name(GlobalConstants.ModelCellSelectedNotificationID)
@@ -46,25 +46,25 @@ class ModelsListViewController: UIViewController {
     }
 
     func updateUI() {
-        self.modelsTableView.reloadData()
+        DispatchQueue.main.async {
+            self.modelsTableView.reloadData()
+        }
+
     }
 
     func modelSelected(sender: Notification) {
         guard let index = sender.userInfo?[GlobalConstants.NotificationUserInfoKey] as? Int else {
             fatalError()
         }
-        let selectedModel = modelManager.carElement(at: index) as! Model
+        let selectedModel = modelManager?.carElement(at: index) as! Model
         openCarVC(with: selectedModel)
     }
 
     func openCarVC(with selectedModel: Model) {
-        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: GlobalConstants.CarVCID) as? CarViewController {
-            nextViewController.car = Car(manufacturer: selectedManufacturer!, model: selectedModel)
-            navigationController?.pushViewController(nextViewController, animated: true)
+        if let carVC = storyboard?.instantiateViewController(withIdentifier: GlobalConstants.CarVCID) as? CarViewController {
+            carVC.car = Car(manufacturer: selectedManufacturer!, model: selectedModel)
+            navigationController?.pushViewController(carVC, animated: true)
         }
     }
-
-
-
 
 }

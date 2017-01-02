@@ -32,7 +32,6 @@ class ManufacturerCellTests: XCTestCase {
         XCTAssertEqual(cell.iCarElementNameLabel.text, "BMW")
     }
 
-
     func dequeuedManufacturerCell(for indexPath: IndexPath) -> ICarElementCell {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController

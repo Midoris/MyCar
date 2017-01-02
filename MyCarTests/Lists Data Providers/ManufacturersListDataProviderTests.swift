@@ -17,25 +17,18 @@ class ManufacturersListDataProviderTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        let paresrNotificator = ManufacturerParsingCompletionNotificator()
-        let parser = ManufacturersParser()
-        let manufacturerURLGenerator = ManufacturerURLGenerator()
-        let apiClient = APIClient()
-        let manager = CarElementManager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
-        let cellSelectionNotificator = ManufacturerCellSelectionNotificator()
-        sut = ListDataProvider(manager: manager, notificator: cellSelectionNotificator)
-        sut.manager = manager
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         controller = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
         _ = controller.view
+        sut = controller.manufacturersListDataProvider
+        sut.manager = controller.manufacturerManager
         tableView = controller.manufacturersTableView
         tableView.dataSource = sut
         tableView.delegate = sut
     }
     
     override func tearDown() {
-        sut.manager?.removeAllCarElemnts()
-        sut.manager = nil
+        sut.manager.removeAllCarElemnts()
         super.tearDown()
     }
 
@@ -44,15 +37,15 @@ class ManufacturersListDataProviderTests: XCTestCase {
     }
 
     func testNumberOfRows_ShouldBeManufacturers() {
-        sut.manager?.add(parsedCarElements: [Manufacturer(id: "101", name: "BMW")])
-        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manager?.elementsCount)
-        sut.manager?.add(parsedCarElements: [Manufacturer(id: "070", name: "Audi")])
+        sut.manager.add(parsedCarElements: [Manufacturer(id: "101", name: "BMW")])
+        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manager.elementsCount)
+        sut.manager.add(parsedCarElements: [Manufacturer(id: "070", name: "Audi")])
         tableView.reloadData()
-        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manager?.elementsCount)
+        XCTAssertEqual(tableView.numberOfRows(inSection: 0), sut.manager.elementsCount)
     }
 
     func testCellRorRow_ReturnsManufacturerCell() {
-        sut.manager?.add(parsedCarElements: [Manufacturer(id: "101", name: "BMW")])
+        sut.manager.add(parsedCarElements: [Manufacturer(id: "101", name: "BMW")])
         tableView.reloadData()
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertTrue(cell is ICarElementCell)
@@ -60,30 +53,28 @@ class ManufacturersListDataProviderTests: XCTestCase {
 
     func testCellForRow_DequesCell() {
         let mockTableView = MockTableView.mockTableView(with: sut)
-        sut.manager?.add(parsedCarElements: [Manufacturer(id: "101", name: "NMW")])
+        sut.manager.add(parsedCarElements: [Manufacturer(id: "101", name: "NMW")])
         mockTableView.reloadData()
         _ = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0))
         XCTAssertTrue(mockTableView.cellGotDequed)
     }
 
     func testConfigCell_GetsCalledInCellForRow() {
-
+        NotificationCenter.default.removeObserver(controller)
         let mockTableView = MockTableView.mockTableView(with: sut)
         let manufacturer = Manufacturer(id: "070", name: "Audi")
-        sut.manager?.add(parsedCarElements: [manufacturer])
+        sut.manager.add(parsedCarElements: [manufacturer])
         mockTableView.reloadData()
         let cell = mockTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MockICarElementCell
         XCTAssertEqual(cell.manufacturer?.id, manufacturer.id)
         XCTAssertEqual(cell.manufacturer?.name, manufacturer.name)
     }
 
-    func testSelectionCell_SendsNotification() {
+    func testSelectionCellNotification_SendsNotification() {
         let manufacturer = Manufacturer(id: "070", name: "Audi")
-        sut.manager?.add(parsedCarElements: [manufacturer])
-        tableView.reloadData()
-        XCTAssertEqual(sut.manager?.elementsCount, 1)
-        expectation(forNotification: "ManufacturerCellSelected", object: nil) { (notification) -> Bool in
-            guard let index = notification.userInfo?["index"] as? Int else {
+        sut.manager.add(parsedCarElements: [manufacturer])
+        expectation(forNotification: GlobalConstants.ManufacturerCellSelectedNotificationID, object: nil) { (notification) -> Bool in
+            guard let index = notification.userInfo?[GlobalConstants.NotificationUserInfoKey] as? Int else {
                 return false
             }
             return index == 0
@@ -91,6 +82,7 @@ class ManufacturersListDataProviderTests: XCTestCase {
         tableView.delegate?.tableView!(tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         waitForExpectations(timeout: 3, handler: nil)
     }
+
     
 }
 
@@ -122,5 +114,6 @@ extension ManufacturersListDataProviderTests {
             self.manufacturer = carElement as? Manufacturer
         }
     }
+
 }
 

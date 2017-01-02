@@ -12,7 +12,8 @@ import XCTest
 
 class ManufacturerManagerTests: XCTestCase {
 
-    var sut: CarElementManager!
+    var sut: CarElementsManager!
+    var mockAPIClient: MockAPIClient?
 
     override func setUp() {
         super.setUp()
@@ -22,11 +23,14 @@ class ManufacturerManagerTests: XCTestCase {
         let parser = ManufacturersParser()
         let manufacturerURLGenerator = ManufacturerURLGenerator()
         let apiClient = APIClient()
-        sut = CarElementManager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
+        mockAPIClient = MockAPIClient()
+
+        sut = CarElementsManager(parser: parser, notificator: paresrNotificator, urlGenerator: manufacturerURLGenerator, apiClient: mockAPIClient!)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut.removeAllCarElemnts()
+        sut = nil
         super.tearDown()
     }
 
@@ -54,6 +58,28 @@ class ManufacturerManagerTests: XCTestCase {
         sut.removeAllCarElemnts()
         XCTAssertEqual(sut.elementsCount, 0)
     }
-    
+
+    func testFetchAdditionalCarElemets_CallscallAPI() {
+        sut.fetchAdditionalCarElemets(for: 1)
+        XCTAssertTrue((mockAPIClient?.callAPIGotCalled)!)
+    }
     
 }
+
+extension ManufacturerManagerTests {
+
+    class MockAPIClient: APIClient {
+
+        var callAPIGotCalled = false
+        override func callAPI(with url: URL, completion: @escaping ([String : AnyObject]?, Error?) -> Void) {
+            self.callAPIGotCalled = true
+        }
+
+    }
+}
+
+
+
+
+
+

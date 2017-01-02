@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Paganator {
+class Paganator: IPaganator {
 
     private var pageNumber = 0
     private var previousLoadingIndex = 0
@@ -25,4 +25,8 @@ class Paganator {
         }
     }
     
+}
+
+protocol IPaganator {
+    func performPagination(for row: Int, using fetchMethod: (_: Int) -> (), elementsCount: Int)
 }

@@ -11,11 +11,11 @@ import UIKit
 
 class ListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    var manager: CarElementManager
-    var notificator: ICellSelectionNotificator
-    let paganator: Paganator
+    var manager: CarElementsManager
+    private var notificator: ICellSelectionNotificator
+    private let paganator: IPaganator
 
-    init(manager: CarElementManager, notificator: ICellSelectionNotificator, paganator: Paganator) {
+    init(manager: CarElementsManager, notificator: ICellSelectionNotificator, paganator: IPaganator) {
         self.manager = manager
         self.notificator = notificator
         self.paganator = paganator

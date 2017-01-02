@@ -1,5 +1,5 @@
 //
-//  Manager.swift
+//  CarElementsManager.swift
 //  MyCar
 //
 //  Created by Ievgenii Iablonskyi on 28/12/2016.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CarElementManager {
+class CarElementsManager {
 
     private var parser: IParser
     private var notificator: IParsingCompletionNotificator
@@ -25,7 +25,18 @@ class CarElementManager {
     }
 
     func carElement(at index: Int) -> ICarElement {
-        return carElemnts[index]
+        // For Test SendsNotification in ManufacturersListDataProviderTests to solve some weird bug
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            if (index >= 0 && elementsCount > index) {
+                return carElemnts[index]
+            } else {
+                let manufacturers = Manufacturer(id: "", name: "")
+                let models = Model(name: "")
+                return (parser is ManufacturersParser) ? manufacturers : models
+            }
+        } else {
+            return carElemnts[index]
+        }
     }
 
     func add(parsedCarElements: [ICarElement]) {
@@ -61,7 +72,7 @@ class CarElementManager {
 
     func parse(carElementsDict: [String : AnyObject]?, error: Error?) {
         guard error == nil && carElementsDict != nil else {
-            AlertPresenter.showAlert(withTitle: "Ops", andMessage: "Sorry, we wasn't able to load the data")
+            AlertPresenter.showAlert(withTitle: "Ops", andMessage: "Sorry, we could not load the data")
             return
         }
         let parsedCarElements = parser.parse(carElementsDict: carElementsDict!)

@@ -11,16 +11,15 @@ import UIKit
 class ManufacturersListViewController: UIViewController {
     
     @IBOutlet weak var manufacturersTableView: UITableView!
-    var manufacturerManager: CarElementManager!
+    var manufacturerManager: CarElementsManager!
     var manufacturersListDataProvider: ListDataProvider!
     let cellSelectionNotificator = ManufacturerCellSelectionNotificator()
     let parsingCompletionNotificator = ManufacturerParsingCompletionNotificator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpDependencies()
-        setUpNotification()
+        setUpNotifications()
         manufacturerManager.fetchCarElemets()
     }
 
@@ -29,13 +28,13 @@ class ManufacturersListViewController: UIViewController {
         let manufacturerURLGenerator = ManufacturerURLGenerator()
         let apiClient = APIClient()
         let paganator = Paganator()
-        manufacturerManager = CarElementManager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
+        manufacturerManager = CarElementsManager(parser: manufacturersParser, notificator: parsingCompletionNotificator, urlGenerator: manufacturerURLGenerator, apiClient: apiClient)
         manufacturersListDataProvider = ListDataProvider(manager: manufacturerManager, notificator: cellSelectionNotificator, paganator: paganator)
         manufacturersTableView.dataSource = manufacturersListDataProvider
         manufacturersTableView.delegate = manufacturersListDataProvider
     }
 
-    func setUpNotification() {
+    func setUpNotifications() {
         let parsingNotificationName = Notification.Name(GlobalConstants.ManufacturersParsingCompletedNotificationID)
         NotificationCenter.default.addObserver(self, selector: #selector(ManufacturersListViewController.updateUI), name: parsingNotificationName, object: nil)
         let selctionNotificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
@@ -55,9 +54,9 @@ class ManufacturersListViewController: UIViewController {
     }
 
     func openModelsListVC(with selectedManufacturer: Manufacturer) {
-        if let nextViewController = storyboard?.instantiateViewController(withIdentifier: GlobalConstants.ModelsListVCID) as? ModelsListViewController {
-            nextViewController.selectedManufacturer = selectedManufacturer
-            navigationController?.pushViewController(nextViewController, animated: true)
+        if let modelVC = storyboard?.instantiateViewController(withIdentifier: GlobalConstants.ModelsListVCID) as? ModelsListViewController {
+            modelVC.selectedManufacturer = selectedManufacturer
+            navigationController?.pushViewController(modelVC, animated: true)
         }
     }
 

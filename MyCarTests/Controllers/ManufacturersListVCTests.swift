@@ -16,12 +16,14 @@ class ManufacturersListVCTests: XCTestCase {
     override func setUp() {
         super.setUp()
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        sut = storyBoard.instantiateViewController(withIdentifier: "ManufacturersListViewController") as! ManufacturersListViewController
+        sut = storyBoard.instantiateViewController(withIdentifier: GlobalConstants.ManufacturersListVCID) as! ManufacturersListViewController
         _ = sut.view
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut.manufacturerManager.removeAllCarElemnts()
+        sut.manufacturerManager = nil
+        NotificationCenter.default.removeObserver(sut)
         super.tearDown()
     }
 
@@ -47,6 +49,32 @@ class ManufacturersListVCTests: XCTestCase {
         XCTAssertTrue(sut.manufacturerManager === sut.manufacturersListDataProvider?.manager)
     }
 
-
+    func testCellSelectedNotification_PushesModelsListVC() {
+        let mockNavigationController = MockNavigationController(rootViewController: sut)
+        UIApplication.shared.keyWindow?.rootViewController = mockNavigationController
+        _ = sut.view
+        let notificationName = Notification.Name(GlobalConstants.ManufacturerCellSelectedNotificationID)
+        NotificationCenter.default.post(name: notificationName, object: self, userInfo: ["index" : 0])
+        guard let modelsListVC = mockNavigationController.pushedVIewController as? ModelsListViewController else {
+            XCTFail()
+            return
+        }
+        XCTAssertNotNil(modelsListVC.selectedManufacturer)
+    }
 
 }
+
+extension ManufacturersListVCTests {
+
+    class MockNavigationController: UINavigationController {
+
+        var pushedVIewController: UIViewController?
+
+        override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+            pushedVIewController = viewController
+            super.pushViewController(viewController, animated: animated)
+
+        }
+    }
+}
+

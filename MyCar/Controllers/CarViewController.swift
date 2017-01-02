@@ -14,7 +14,6 @@ class CarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         showSelectedCarAlert()
     }
 

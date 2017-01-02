@@ -17,7 +17,7 @@
 		06768AEC1E137825001114DC /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AEB1E137825001114DC /* ModelTests.swift */; };
 		06768AEE1E137845001114DC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AED1E137845001114DC /* Model.swift */; };
 		06768AF21E1378B4001114DC /* ManufacturerManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AF11E1378B4001114DC /* ManufacturerManagerTests.swift */; };
-		06768AF41E1378DD001114DC /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AF31E1378DD001114DC /* Manager.swift */; };
+		06768AF41E1378DD001114DC /* CarElementsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AF31E1378DD001114DC /* CarElementsManager.swift */; };
 		06768AFE1E1390C5001114DC /* ManufacturersListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AFD1E1390C5001114DC /* ManufacturersListVCTests.swift */; };
 		06768B001E139146001114DC /* ManufacturersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768AFF1E139146001114DC /* ManufacturersListViewController.swift */; };
 		06768B041E13935B001114DC /* ManufacturersListDataProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06768B031E13935B001114DC /* ManufacturersListDataProviderTests.swift */; };
@@ -46,6 +46,16 @@
 		068E54EE1E18D31800A9CA32 /* AlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54ED1E18D31800A9CA32 /* AlertPresenter.swift */; };
 		068E54F01E18D55100A9CA32 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54EF1E18D55100A9CA32 /* CarViewController.swift */; };
 		068E54F21E18D88C00A9CA32 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54F11E18D88C00A9CA32 /* Car.swift */; };
+		068E54F41E1A0A7400A9CA32 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54F31E1A0A7400A9CA32 /* APIClientTests.swift */; };
+		068E54F61E1A170800A9CA32 /* ModelsListVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54F51E1A170800A9CA32 /* ModelsListVCTests.swift */; };
+		068E54F91E1A53A600A9CA32 /* ModelURLGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54F81E1A53A600A9CA32 /* ModelURLGeneratorTests.swift */; };
+		068E54FB1E1A588F00A9CA32 /* ModelCellSelectionNotificatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54FA1E1A588F00A9CA32 /* ModelCellSelectionNotificatorTests.swift */; };
+		068E54FD1E1A5D0300A9CA32 /* CarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54FC1E1A5D0300A9CA32 /* CarViewControllerTests.swift */; };
+		068E54FF1E1A5EF900A9CA32 /* ModelParsingCompletionNotificatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E54FE1E1A5EF900A9CA32 /* ModelParsingCompletionNotificatorTests.swift */; };
+		068E55011E1A665D00A9CA32 /* ManufacturersParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E55001E1A665D00A9CA32 /* ManufacturersParserTests.swift */; };
+		068E55031E1A691600A9CA32 /* ModelsParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E55021E1A691600A9CA32 /* ModelsParserTests.swift */; };
+		068E55051E1A6A1D00A9CA32 /* PaganatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E55041E1A6A1D00A9CA32 /* PaganatorTests.swift */; };
+		068E55071E1A985900A9CA32 /* CarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068E55061E1A985900A9CA32 /* CarTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +83,7 @@
 		06768AEB1E137825001114DC /* ModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelTests.swift; path = "A Car/ModelTests.swift"; sourceTree = "<group>"; };
 		06768AED1E137845001114DC /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = "A Car/Model.swift"; sourceTree = "<group>"; };
 		06768AF11E1378B4001114DC /* ManufacturerManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturerManagerTests.swift; path = "Car Objects Managers/ManufacturerManagerTests.swift"; sourceTree = "<group>"; };
-		06768AF31E1378DD001114DC /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manager.swift; path = "Car Objects Managers/Manager.swift"; sourceTree = "<group>"; };
+		06768AF31E1378DD001114DC /* CarElementsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarElementsManager.swift; path = "Car Objects Managers/CarElementsManager.swift"; sourceTree = "<group>"; };
 		06768AFD1E1390C5001114DC /* ManufacturersListVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersListVCTests.swift; path = Controllers/ManufacturersListVCTests.swift; sourceTree = "<group>"; };
 		06768AFF1E139146001114DC /* ManufacturersListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersListViewController.swift; path = Controllers/ManufacturersListViewController.swift; sourceTree = "<group>"; };
 		06768B031E13935B001114DC /* ManufacturersListDataProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersListDataProviderTests.swift; path = "Lists Data Providers/ManufacturersListDataProviderTests.swift"; sourceTree = "<group>"; };
@@ -102,6 +112,16 @@
 		068E54ED1E18D31800A9CA32 /* AlertPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertPresenter.swift; path = Controllers/AlertPresenter.swift; sourceTree = "<group>"; };
 		068E54EF1E18D55100A9CA32 /* CarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarViewController.swift; path = Controllers/CarViewController.swift; sourceTree = "<group>"; };
 		068E54F11E18D88C00A9CA32 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Car.swift; path = "A Car/Car.swift"; sourceTree = "<group>"; };
+		068E54F31E1A0A7400A9CA32 /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClientTests.swift; path = "API Client/APIClientTests.swift"; sourceTree = "<group>"; };
+		068E54F51E1A170800A9CA32 /* ModelsListVCTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsListVCTests.swift; path = Controllers/ModelsListVCTests.swift; sourceTree = "<group>"; };
+		068E54F81E1A53A600A9CA32 /* ModelURLGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelURLGeneratorTests.swift; path = "API Client/ModelURLGeneratorTests.swift"; sourceTree = "<group>"; };
+		068E54FA1E1A588F00A9CA32 /* ModelCellSelectionNotificatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelCellSelectionNotificatorTests.swift; path = "Car Objects Managers/ModelCellSelectionNotificatorTests.swift"; sourceTree = "<group>"; };
+		068E54FC1E1A5D0300A9CA32 /* CarViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarViewControllerTests.swift; path = Controllers/CarViewControllerTests.swift; sourceTree = "<group>"; };
+		068E54FE1E1A5EF900A9CA32 /* ModelParsingCompletionNotificatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelParsingCompletionNotificatorTests.swift; path = "Car Objects Managers/ModelParsingCompletionNotificatorTests.swift"; sourceTree = "<group>"; };
+		068E55001E1A665D00A9CA32 /* ManufacturersParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManufacturersParserTests.swift; path = "Car Objects Managers/ManufacturersParserTests.swift"; sourceTree = "<group>"; };
+		068E55021E1A691600A9CA32 /* ModelsParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelsParserTests.swift; path = "Car Objects Managers/ModelsParserTests.swift"; sourceTree = "<group>"; };
+		068E55041E1A6A1D00A9CA32 /* PaganatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaganatorTests.swift; path = "Lists Data Providers/PaganatorTests.swift"; sourceTree = "<group>"; };
+		068E55061E1A985900A9CA32 /* CarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CarTests.swift; path = "A Car/CarTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +167,9 @@
 				06768B281E151C56001114DC /* GlobalConstants.swift */,
 				06768B1E1E14ECAF001114DC /* API Client */,
 				06768B0E1E139E13001114DC /* Cells */,
-				06768B081E139909001114DC /* Lists Data Providers */,
+				06768B081E139909001114DC /* Lists Data Provider */,
 				06768B011E139264001114DC /* Controllers */,
-				06768AF81E13790F001114DC /* Car Objects Managers */,
+				06768AF81E13790F001114DC /* Car Objects Manager */,
 				06768AEF1E137857001114DC /* A Car */,
 				06768ACB1E137740001114DC /* Main.storyboard */,
 				06768ACE1E137740001114DC /* Assets.xcassets */,
@@ -163,10 +183,11 @@
 			isa = PBXGroup;
 			children = (
 				06768ADC1E137740001114DC /* MyCarTests.swift */,
+				068E54F71E1A539000A9CA32 /* API Client */,
 				06768B0B1E139DAE001114DC /* Cells */,
-				06768B051E13935F001114DC /* Lists Data Providers */,
+				06768B051E13935F001114DC /* Lists Data Provider */,
 				06768B021E139270001114DC /* Controllers */,
-				06768AF71E137909001114DC /* Car Objects Managers */,
+				06768AF71E137909001114DC /* Car Objects Manager */,
 				06768AF01E13785F001114DC /* A Car */,
 				06768ADE1E137740001114DC /* Info.plist */,
 			);
@@ -189,26 +210,31 @@
 			children = (
 				06768AE71E137794001114DC /* ManufacturerTests.swift */,
 				06768AEB1E137825001114DC /* ModelTests.swift */,
+				068E55061E1A985900A9CA32 /* CarTests.swift */,
 			);
 			name = "A Car";
 			sourceTree = "<group>";
 		};
-		06768AF71E137909001114DC /* Car Objects Managers */ = {
+		06768AF71E137909001114DC /* Car Objects Manager */ = {
 			isa = PBXGroup;
 			children = (
 				06768AF11E1378B4001114DC /* ManufacturerManagerTests.swift */,
+				068E54FA1E1A588F00A9CA32 /* ModelCellSelectionNotificatorTests.swift */,
+				068E54FE1E1A5EF900A9CA32 /* ModelParsingCompletionNotificatorTests.swift */,
+				068E55001E1A665D00A9CA32 /* ManufacturersParserTests.swift */,
+				068E55021E1A691600A9CA32 /* ModelsParserTests.swift */,
 			);
-			name = "Car Objects Managers";
+			name = "Car Objects Manager";
 			sourceTree = "<group>";
 		};
-		06768AF81E13790F001114DC /* Car Objects Managers */ = {
+		06768AF81E13790F001114DC /* Car Objects Manager */ = {
 			isa = PBXGroup;
 			children = (
-				06768AF31E1378DD001114DC /* Manager.swift */,
+				06768AF31E1378DD001114DC /* CarElementsManager.swift */,
 				06768B1F1E14ED93001114DC /* Parser */,
 				06768B1B1E14DEF2001114DC /* Notificator */,
 			);
-			name = "Car Objects Managers";
+			name = "Car Objects Manager";
 			sourceTree = "<group>";
 		};
 		06768B011E139264001114DC /* Controllers */ = {
@@ -226,25 +252,28 @@
 			isa = PBXGroup;
 			children = (
 				06768AFD1E1390C5001114DC /* ManufacturersListVCTests.swift */,
+				068E54F51E1A170800A9CA32 /* ModelsListVCTests.swift */,
+				068E54FC1E1A5D0300A9CA32 /* CarViewControllerTests.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		06768B051E13935F001114DC /* Lists Data Providers */ = {
+		06768B051E13935F001114DC /* Lists Data Provider */ = {
 			isa = PBXGroup;
 			children = (
 				06768B031E13935B001114DC /* ManufacturersListDataProviderTests.swift */,
+				068E55041E1A6A1D00A9CA32 /* PaganatorTests.swift */,
 			);
-			name = "Lists Data Providers";
+			name = "Lists Data Provider";
 			sourceTree = "<group>";
 		};
-		06768B081E139909001114DC /* Lists Data Providers */ = {
+		06768B081E139909001114DC /* Lists Data Provider */ = {
 			isa = PBXGroup;
 			children = (
 				06768B061E13944B001114DC /* ListDataProvider.swift */,
 				068E54E51E18B40F00A9CA32 /* Paganator.swift */,
 			);
-			name = "Lists Data Providers";
+			name = "Lists Data Provider";
 			sourceTree = "<group>";
 		};
 		06768B0B1E139DAE001114DC /* Cells */ = {
@@ -305,6 +334,15 @@
 				06768B261E1518A9001114DC /* URLElementsConstsnts.swift */,
 			);
 			name = URLGenerator;
+			sourceTree = "<group>";
+		};
+		068E54F71E1A539000A9CA32 /* API Client */ = {
+			isa = PBXGroup;
+			children = (
+				068E54F31E1A0A7400A9CA32 /* APIClientTests.swift */,
+				068E54F81E1A53A600A9CA32 /* ModelURLGeneratorTests.swift */,
+			);
+			name = "API Client";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,7 +466,7 @@
 				06768B251E1515CA001114DC /* ManufacturerURLGenerator.swift in Sources */,
 				06768AEE1E137845001114DC /* Model.swift in Sources */,
 				06768B1D1E14E703001114DC /* ManufacturerParsingCompletionNotificator.swift in Sources */,
-				06768AF41E1378DD001114DC /* Manager.swift in Sources */,
+				06768AF41E1378DD001114DC /* CarElementsManager.swift in Sources */,
 				06768B161E14D306001114DC /* ModelsParser.swift in Sources */,
 				06768B2D1E154963001114DC /* ModelURLGenerator.swift in Sources */,
 				06768B271E1518A9001114DC /* URLElementsConstsnts.swift in Sources */,
@@ -449,12 +487,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				06768AF21E1378B4001114DC /* ManufacturerManagerTests.swift in Sources */,
+				068E55011E1A665D00A9CA32 /* ManufacturersParserTests.swift in Sources */,
 				06768AFE1E1390C5001114DC /* ManufacturersListVCTests.swift in Sources */,
+				068E54FB1E1A588F00A9CA32 /* ModelCellSelectionNotificatorTests.swift in Sources */,
+				068E55071E1A985900A9CA32 /* CarTests.swift in Sources */,
 				06768AEC1E137825001114DC /* ModelTests.swift in Sources */,
+				068E54F41E1A0A7400A9CA32 /* APIClientTests.swift in Sources */,
 				06768AE81E137794001114DC /* ManufacturerTests.swift in Sources */,
 				06768ADD1E137740001114DC /* MyCarTests.swift in Sources */,
+				068E54FF1E1A5EF900A9CA32 /* ModelParsingCompletionNotificatorTests.swift in Sources */,
 				06768B041E13935B001114DC /* ManufacturersListDataProviderTests.swift in Sources */,
+				068E55031E1A691600A9CA32 /* ModelsParserTests.swift in Sources */,
+				068E54F91E1A53A600A9CA32 /* ModelURLGeneratorTests.swift in Sources */,
+				068E54F61E1A170800A9CA32 /* ModelsListVCTests.swift in Sources */,
 				06768B0A1E139CD6001114DC /* ManufacturerCellTests.swift in Sources */,
+				068E54FD1E1A5D0300A9CA32 /* CarViewControllerTests.swift in Sources */,
+				068E55051E1A6A1D00A9CA32 /* PaganatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
