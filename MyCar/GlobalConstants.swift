@@ -23,4 +23,7 @@ struct GlobalConstants {
 
     static let ParserKey = "wkda"
     static let NotificationUserInfoKey = "index"
+
+    static let CantLoadDataErrorTitle = "Ops"
+    static let CantLoadDataErrorMessage = "Sorry, we could not load the data"
 }
